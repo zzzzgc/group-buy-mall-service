@@ -1,0 +1,10 @@
+# \u7AEF\u53E3\u53F7
+server.port=8100
+# \u672C\u5730\u73AF\u5883 dev\u5F00\u53D1 test\u6D4B\u8BD5 prod\u751F\u4EA7
+spring.profiles.active=dev
+
+# jackson \u683C\u5F0F\u5316\u54CD\u5E94\u5BF9\u8C61\u7684\u65F6\u5019\u9700\u8981\u628A\u65F6\u95F4\u683C\u5F0F\u5316\u4E86
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.locale=zh
+spring.jackson.time-zone=GMT+8
+
