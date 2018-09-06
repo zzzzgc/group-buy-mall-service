@@ -1,11 +1,11 @@
 package com.xiguo.www.group.repository.user;
 // 若将XXXRepositoryImpl与XXXRepository接口放在同意包下，XXXRepositoryImpl不需要添加@Repository注解，但是当XXXRepositoryImpl与XXXRepository接口不在同一包下，需要在在XXXRepositoryImpl类上加@Repository注解进行修饰
 
-import com.xiguo.www.group.entity.User;
+import com.xiguo.www.group.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author: ZGC
@@ -17,24 +17,18 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
     UserRepository userRepository;
 
     @Override
-    public List<User> findAllCareAboutUserGroupBuyInfo(Long userId) {
+    public Set<User> findAllCareAboutUserGroupBuyInfo(Long userId) {
         User user = userRepository.getOne(userId);
-
-        List<User> Users = new ArrayList<>();
-        user.getCareAboutGroupBuys().forEach(
-                careAboutGroupBuy -> {
-                    User otherUser = careAboutGroupBuy.getOtherUser();
-                    Users.add(otherUser);
-                    otherUser.getGroupBuys().forEach(
-                            groupBuy -> {
-                                groupBuy.setUser(null);
-                                groupBuy.getGroupBuyProducts().forEach(
-                                        groupBuyProduct -> groupBuyProduct.getGroupBuyProductImages().size()
-                                );
-                            }
-                    );
+        HashSet<User> mUsers = new HashSet<>();
+        for (UserCareAboutGroupBuy userCareAboutGroupBuy : user.getCareAboutGroupBuys()) {
+            User otherUser = userCareAboutGroupBuy.getOtherUser();
+            boolean add = mUsers.add(otherUser);
+            for (GroupBuy groupBuy : otherUser.getGroupBuys()) {
+                for (GroupBuyProduct groupBuyProduct : groupBuy.getGroupBuyProducts()) {
+                    groupBuyProduct.getGroupBuyProductImages().size();
                 }
-        );
-        return Users;
+            }
+        }
+        return mUsers;
     }
 }

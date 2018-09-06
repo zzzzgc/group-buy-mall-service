@@ -1,7 +1,9 @@
 package com.xiguo.www.group.controller;
 
 import com.xiguo.www.group.repository.groupBuy.*;
-import com.xiguo.www.group.repository.order.OrderProductRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
+import com.xiguo.www.group.repository.product.OrderProductRepository;
 import com.xiguo.www.group.repository.order.OrderRepository;
 import com.xiguo.www.group.repository.user.*;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,9 @@
 package com.xiguo.www.group.service.user;
 
+import com.xiguo.www.group.entity.GroupBuy;
 import com.xiguo.www.group.entity.User;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author: ZGC
@@ -16,5 +17,12 @@ public interface UserService {
      * @param userId 用户id
      * @return
      */
-    List<User> findAllCareAboutUserGroupBuyInfo(Long userId);
+    Set<User> findAllCareAboutUserGroupBuyInfo(Long userId);
+
+    /**
+     * 获取用户的所有团购进行中的团购
+     * @param userId 用户id
+     * @return 进行中的团购
+     */
+    GroupBuy findByUserId(Long userId);
 }

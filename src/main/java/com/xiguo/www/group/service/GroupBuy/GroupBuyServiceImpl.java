@@ -1,9 +1,8 @@
 package com.xiguo.www.group.service.GroupBuy;
 
-import com.xiguo.www.group.dto.GroupBuyDto;
-import com.xiguo.www.group.entity.*;
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductRepository;
+import com.xiguo.www.group.entity.GroupBuy;
 import com.xiguo.www.group.repository.groupBuy.GroupBuyRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
 import com.xiguo.www.group.service.dozer.BeanConvert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,29 +31,22 @@ public class GroupBuyServiceImpl implements GroupBuyService {
 //    GroupBuyProductRepository groupBuyProductRepository;
 
     @Override
-    public GroupBuyDto saveAndUPdate(GroupBuyDto groupBuyDto, Long userId) {
+    public GroupBuy saveAndUpdate(GroupBuy groupBuy, Long userId) {
         //groupBuy -> groupBuyProduct -> groupBuyProduct
-        GroupBuy groupBuy = beanConvert.convert(groupBuyDto, GroupBuy.class);
         groupBuyRepository.saveAndUpdate(groupBuy, userId);
-        groupBuyDto = beanConvert.convert(groupBuy, GroupBuyDto.class);
-        return groupBuyDto;
+        return groupBuy;
     }
 
-    /**
-     * 获取groupBuy product image noutoasiakas
-     *
-     * @param userId
-     * @param groupBuyId
-     * @return
-     */
     @Override
-    public GroupBuyDto findByUserAndId(Long userId, Long groupBuyId) {
-        User user = new User(userId);
-        em.flush();
-        GroupBuy groupBuy = groupBuyRepository.findByUserAndId(user, groupBuyId);
-        groupBuy.getGroupBuyProducts().size();
-        groupBuy.getGroupBuyNoutoasiakases().size();
-        em.close();
-        return beanConvert.convert(groupBuy, GroupBuyDto.class);
+    public GroupBuy findById(Long groupBuyId) {
+        GroupBuy one = groupBuyRepository.findById(groupBuyId).get();
+        return one;
     }
+
+    @Override
+    public GroupBuy findGroupBuyToGroupBuyProductImageById(Long groupBuyId) {
+        return groupBuyRepository.findGroupBuyToGroupBuyProductImageById(groupBuyId);
+    }
+
+
 }

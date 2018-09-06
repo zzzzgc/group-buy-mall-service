@@ -49,8 +49,9 @@ public class GroupBuyProduct extends BaseEntity implements Serializable {
      * 商品图片,加载商品的时候附带加载图片
      */
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "groupBuyProduct")
-    private Set<GroupBuyProductImage> groupBuyProductImages = new HashSet<>();
+    private Set<GroupBuyProductImage> groupBuyProductImages;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "groupBuyProduct")
-    private Set<OrderProduct> orderProducts = new HashSet<>();
+    @JsonIgnore
+    private Set<OrderProduct> orderProducts;
 }

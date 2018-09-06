@@ -34,9 +34,9 @@ public class GroupBuyNoutoasiakas extends BaseEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JsonIgnore
-    private GroupBuy groupBuy = new GroupBuy();
+    private GroupBuy groupBuy;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private Noutoasiakas noutoasiakas = new Noutoasiakas();
+    private Noutoasiakas noutoasiakas;
 
 }

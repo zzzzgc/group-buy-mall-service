@@ -28,6 +28,6 @@ public class UserMerchantDefaultSettingDto extends BaseEntity implements Seriali
     
     private Boolean canNoutoasiakas = true;
     
-    private UserDto user;
+    // private UserDto user;
 
 }

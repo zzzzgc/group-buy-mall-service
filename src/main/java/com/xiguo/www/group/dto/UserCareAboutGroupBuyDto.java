@@ -23,8 +23,8 @@ public class UserCareAboutGroupBuyDto extends BaseEntity  implements Serializabl
 
     private Date updatedAt;
 
-    private UserDto user;
+    // private UserDto user;
 
-    private UserDto otherUser;
+//    private UserDto otherUser;
 
 }

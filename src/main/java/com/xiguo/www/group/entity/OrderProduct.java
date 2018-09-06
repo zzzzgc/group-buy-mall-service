@@ -38,9 +38,31 @@ public class OrderProduct extends BaseEntity implements Serializable {
     private int number = 0;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+//    @JsonIgnore
     private GroupBuyProduct groupBuyProduct;
+
+    @Transient
+//    @Basic()
+    private Long groupBuyProductId;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Order order;
+
+//    @JsonIgnore
+//    public GroupBuyProduct getGroupBuyProduct() {
+//        return groupBuyProduct;
+//    }
+//
+//    public void setGroupBuyProduct(GroupBuyProduct groupBuyProduct) {
+//        this.groupBuyProduct = groupBuyProduct;
+//    }
+
+//    public Long getGroupBuyProductId() {
+//        return groupBuyProductId;
+//    }
+//
+//    public void setGroupBuyProductId(Long groupBuyProductId) {
+//        this.groupBuyProductId = groupBuyProductId;
+//    }
 }

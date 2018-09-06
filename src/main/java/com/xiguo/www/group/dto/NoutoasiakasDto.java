@@ -34,6 +34,6 @@ public class NoutoasiakasDto extends BaseEntity implements Serializable {
 
     private List<GroupBuyNoutoasiakasDto> groupBuyNoutoasiakases;
 
-    private UserDto user;
+    // private UserDto user;
 
 }

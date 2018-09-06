@@ -45,7 +45,7 @@ public class UserDto  extends BaseEntity implements Serializable {
 
     private Set<OrderDto> orders;
 
-    private UserShopDto userShop;
+//    private UserShopDto userShop;
 
     private Set<UserMerchantDefaultSettingDto> userMerchantDefaultSettings;
 

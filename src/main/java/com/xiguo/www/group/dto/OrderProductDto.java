@@ -18,12 +18,6 @@ import java.util.Objects;
 @Setter
 public class OrderProductDto extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Long id;
-
-    private Date createAt;
-
-    private Date updatedAt;
-    
     private String name = "";
     
     private String imageUrl = "";
@@ -32,8 +26,8 @@ public class OrderProductDto extends BaseEntity implements Serializable {
     
     private int number = 0;
     
-    private GroupBuyProductDto groupBuyProduct;
+    // private GroupBuyProductDto groupBuyProduct;
 
-    private OrderDto order;
+    // private OrderDto order;
 
 }

@@ -21,6 +21,6 @@ public class GroupBuyProductImageDto extends BaseEntity implements Serializable 
 
     private String url;
 
-    private GroupBuyProductDto groupBuyProduct;
+    // private GroupBuyProductDto groupBuyProduct;
 
 }

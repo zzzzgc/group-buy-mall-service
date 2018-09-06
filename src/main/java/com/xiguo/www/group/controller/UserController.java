@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,16 +37,10 @@ import java.util.Set;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
     UserService userService;
 
     @Autowired
     BeanConvert beanConvert;
-
-    @Autowired
-    RestTemplate restTemplate;
 
     @Autowired
     private Environment env;
@@ -109,9 +104,16 @@ public class UserController {
      * @return 附带各种参数的对象
      */
     @GetMapping("/allCareAboutUserGroupBuyInfo")
-    public ResponseEntity voidfindAllCareAboutUserGroupBuyInfo(HttpSession session) {
+    public ResponseEntity findAllCareAboutUserGroupBuyInfo(HttpSession session) {
+//        Long userId= 1L;
         Long userId= (Long) session.getAttribute(SessionKey.USER_ID.toString());
-        List<User> user = userService.findAllCareAboutUserGroupBuyInfo(userId);
+        Set<User> user = userService.findAllCareAboutUserGroupBuyInfo(userId);
         return RETemplate.ok(user);
+    }
+
+    @GetMapping("/findByUserId/{userId}")
+    public ResponseEntity findByUserId(@PathVariable Long userId) {
+        GroupBuy groupBuy = userService.findByUserId(userId);
+        return RETemplate.ok(groupBuy);
     }
 }

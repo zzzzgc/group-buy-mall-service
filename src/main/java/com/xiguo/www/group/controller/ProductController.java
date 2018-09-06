@@ -2,8 +2,8 @@ package com.xiguo.www.group.controller;
 
 import com.xiguo.www.group.entity.GroupBuyProductImage;
 import com.xiguo.www.group.enums.RETemplate;
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductImageRepository;
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
 import com.xiguo.www.group.service.dozer.BeanConvert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +27,7 @@ public class ProductController {
     @Autowired
     BeanConvert beanConvert;
 
-    @PutMapping("/image/{groupBuyProductId}")
+    @DeleteMapping("/image/{groupBuyProductId}")
     public ResponseEntity deleteProductImage(@PathVariable Long groupBuyProductId) {
         GroupBuyProductImage groupBuyProductImage = groupBuyProductsImagesRepository.getOne(groupBuyProductId);
         groupBuyProductsImagesRepository.delete(groupBuyProductImage);

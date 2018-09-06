@@ -34,7 +34,7 @@ public class GroupBuyProductDto extends BaseEntity implements Serializable {
     
     private Integer sellTotalNumber = 0;
     
-    private GroupBuyDto groupBuy;
+    // private GroupBuyDto groupBuy;
     
     private Set<GroupBuyProductImageDto> groupBuyProductImages=new HashSet<>();
     

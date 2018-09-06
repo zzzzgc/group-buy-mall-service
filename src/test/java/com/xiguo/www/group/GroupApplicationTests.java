@@ -3,8 +3,8 @@ package com.xiguo.www.group;
 import com.xiguo.www.group.dto.TestEntityVo;
 import com.xiguo.www.group.dto.UserDto;
 import com.xiguo.www.group.entity.*;
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductRepository;
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductImageRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
 import com.xiguo.www.group.repository.groupBuy.GroupBuyRepository;
 import com.xiguo.www.group.repository.user.UserRepository;
 import com.xiguo.www.group.service.dozer.BeanConvert;
@@ -21,6 +21,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -312,6 +313,27 @@ public class GroupApplicationTests {
         groupBuyProductRepository.deleteAll(groupBuy.getGroupBuyProducts());
         groupBuy.setGroupBuyProducts(objects);
         GroupBuy save = groupBuyRepository.save(groupBuy);
+    }
+
+    @Autowired
+    EntityManager em;
+
+//    @Test
+//    public void sadf () {
+//        // 失败
+//        GroupBuy groupBuy = new GroupBuy();
+//        groupBuy.setTitle("阿隆索的看风景");
+//        groupBuy.setUser(new User(1L));
+//        groupBuy.setStatus(1);
+//        em.persist(groupBuy);
+//    }
+
+    @Test
+    public void sadf () {
+        User user = new User(3L);
+        user.setNickName("昵称");
+        user.setWechatName("wechat昵称");
+        em.persist(user);
     }
 
 

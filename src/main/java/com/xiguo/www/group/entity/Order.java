@@ -19,8 +19,8 @@ import java.util.Objects;
  * @author ZGC
  * @date Created in 下午 5:31 2018/8/25
  */
-@ToString(callSuper = true, exclude = {"groupBuy", "user", "orderProducts"})
-@EqualsAndHashCode(callSuper = true, exclude = {"groupBuy", "user", "orderProducts"})
+@ToString(callSuper = true, exclude = {"groupBuy", "user", "orderProducts", "merchantUser"})
+@EqualsAndHashCode(callSuper = true, exclude = {"groupBuy", "user", "orderProducts", "merchantUser"})
 @Getter
 @Setter
 
@@ -29,8 +29,8 @@ import java.util.Objects;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler","fieldHandler", "updatedAt"})
 public class Order extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Column(nullable = false, columnDefinition = "varchar(25) COMMENT '用户id' ")
-    private String status = "";
+    @Column(nullable = false, columnDefinition = "tinyint(1) COMMENT '状态' ")
+    private int status = 0;
     @Column(nullable = false, columnDefinition = "bit(1) COMMENT '是否发货' ")
     private Boolean isDelivery = false;
     @Column(nullable = false, columnDefinition = "tinyint(1) COMMENT '物流类型 0未知 1快递 2自提' ")
@@ -47,8 +47,8 @@ public class Order extends BaseEntity implements Serializable {
     private String userName = "";
     @Column(nullable = false, columnDefinition = "varchar(250) COMMENT '用户自填头像' ")
     private String userHeadImage = "";
-    @Column(nullable = false, columnDefinition = "int(11) COMMENT '用户自填手机号码' ")
-    private Integer phone = 0;
+    @Column(nullable = false, columnDefinition = "varchar(15) COMMENT '用户自填手机号码' ")
+    private String phone = "";
     @Column(nullable = false, columnDefinition = "varchar(16) COMMENT '团购名称' ")
     private String groupBuyName = "";
     @Column(nullable = false, columnDefinition = "decimal(8,2) COMMENT '总金额' ")
@@ -67,6 +67,10 @@ public class Order extends BaseEntity implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private User merchantUser;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "order")
     private List<OrderProduct> orderProducts;

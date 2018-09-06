@@ -2,7 +2,7 @@ package com.xiguo.www.group.repository.user;
 
 import com.xiguo.www.group.entity.User;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author: ZGC
@@ -16,5 +16,5 @@ public interface UserRepositoryInterface {
      * @param userId
      * @return
      */
-    List<User> findAllCareAboutUserGroupBuyInfo(Long userId);
+    Set<User> findAllCareAboutUserGroupBuyInfo(Long userId);
 }

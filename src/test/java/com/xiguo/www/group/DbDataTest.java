@@ -1,18 +1,18 @@
 package com.xiguo.www.group;
 
 import com.xiguo.www.group.dto.GroupBuyDto;
-import com.xiguo.www.group.entity.GroupBuy;
-import com.xiguo.www.group.entity.GroupBuyProduct;
-import com.xiguo.www.group.entity.TestEntity;
+import com.xiguo.www.group.dto.UserDto;
+import com.xiguo.www.group.entity.*;
 import com.xiguo.www.group.repository.TestEntityRepository;
 import com.xiguo.www.group.repository.groupBuy.GroupBuyNoutoasiakasRepository;
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductImageRepository;
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
 import com.xiguo.www.group.repository.groupBuy.GroupBuyRepository;
-import com.xiguo.www.group.repository.order.OrderProductRepository;
+import com.xiguo.www.group.repository.product.OrderProductRepository;
 import com.xiguo.www.group.repository.order.OrderRepository;
 import com.xiguo.www.group.repository.user.*;
 import com.xiguo.www.group.service.dozer.BeanConvert;
+import com.xiguo.www.group.service.order.OrderService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,10 +21,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.util.List;
+import javax.persistence.PersistenceContext;
 import java.util.Optional;
+import java.util.Set;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -115,15 +118,72 @@ public class DbDataTest {
         testEntityRepository.delete(testEntity);
     }
 
-    @Autowired
+    @PersistenceContext
     EntityManager em;
 
     @Autowired
     BeanConvert bc;
+
+
+//    @Test
+    @Transactional()
+    public User newAdd() {
+//        em.getTransaction().begin();
+        User user = em.getReference(User.class, 1L);
+        user.getGroupBuys().size();
+//        GroupBuy groupBuy = new GroupBuy(7L);
+//        groupBuy.setTitle("sadfadsfadsf");
+//        groupBuy.setUser(new User(3L));
+//        GroupBuy merge = em.merge(groupBuy);
+//        merge.getUser().getNickName();
+//        merge.getGroupBuyProducts().size();
+//        em.clear();
+        System.out.println(em.contains(user));
+//        em.getTransaction().commit();
+        em.clear();
+        em.close();
+        System.out.println(em.contains(user));
+        System.out.println("--------------------------------------------------");
+//        UserDto convert = bc.convert(user, UserDto.class);
+        System.out.println(user.getNickName());
+        System.out.println(user.getGroupBuys().toArray()[1]);
+//        System.out.println(convert);
+        System.out.println(user.getCareAboutGroupBuys());
+        System.out.println("--------------------------------------------------");
+        return user;
+    }
+
+    @Test
+    @Transactional
+    public void co () {
+        User user = newAdd();
+        UserDto convert = bc.convert(user, UserDto.class);
+        System.out.println(convert);
+    }
+
+
 
     @Test
     public void query () {
         // id查
         System.out.println(testEntityRepository.findById(2L));
     }
+
+    @Test
+    public void asd () {
+//        HashSet<User> users = new HashSet<>();
+        User user = userRepository.findById(1L).get();
+        Set<GroupBuy> groupBuys = user.getGroupBuys();
+        groupBuys.size();
+        for (GroupBuy groupBuy : groupBuys) {
+            for (GroupBuyProduct groupBuyProduct : groupBuy.getGroupBuyProducts()) {
+                groupBuyProduct.getGroupBuyProductImages().size();
+            }
+        }
+//        UserDto convert = bc.convert(user, UserDto.class);
+    }
+
+    @Autowired
+    OrderService orderService;
+
 }

@@ -1,6 +1,6 @@
 package com.xiguo.www.group.service.GroupBuy;
 
-import com.xiguo.www.group.repository.groupBuy.GroupBuyProductImageRepository;
+import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

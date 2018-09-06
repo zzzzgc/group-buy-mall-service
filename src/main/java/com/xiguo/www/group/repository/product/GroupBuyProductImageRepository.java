@@ -1,4 +1,4 @@
-package com.xiguo.www.group.repository.groupBuy;
+package com.xiguo.www.group.repository.product;
 
 import com.xiguo.www.group.entity.GroupBuyProductImage;
 import org.springframework.data.jpa.repository.JpaRepository;

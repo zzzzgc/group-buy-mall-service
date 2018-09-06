@@ -31,6 +31,6 @@ public class UserShopDto extends BaseEntity implements Serializable {
     
     private String address = "";
     
-    private UserDto user;
+    // private UserDto user;
 
 }

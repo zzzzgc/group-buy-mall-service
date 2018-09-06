@@ -1,6 +1,6 @@
 package com.xiguo.www.group.service.GroupBuy;
 
-import com.xiguo.www.group.dto.GroupBuyDto;
+import com.xiguo.www.group.entity.GroupBuy;
 
 /**
  * @author: ZGC
@@ -8,8 +8,10 @@ import com.xiguo.www.group.dto.GroupBuyDto;
  */
 public interface GroupBuyService {
 
-    public GroupBuyDto saveAndUPdate(GroupBuyDto groupBuyDto, Long userId);
+    public GroupBuy saveAndUpdate(GroupBuy groupBuyDto, Long userId);
 
-    GroupBuyDto findByUserAndId(Long userId, Long groupBuyId);
+    GroupBuy findById(Long groupBuyId);
+
+    GroupBuy findGroupBuyToGroupBuyProductImageById (Long groupBuyId);
 
 }

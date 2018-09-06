@@ -29,6 +29,6 @@ public class UserCustomerDefaultSettingDto extends BaseEntity implements Seriali
     
     private String address = "";
 
-    private UserDto user;
+    // private UserDto user;
 
 }

@@ -43,7 +43,7 @@ public class OrderDto extends BaseEntity implements Serializable {
 
     private String userHeadImage = "";
 
-    private Integer phone = 0;
+    private String phone = "";
 
     private String groupBuyName = "";
 
@@ -55,9 +55,9 @@ public class OrderDto extends BaseEntity implements Serializable {
 
     private String merchantRemark = "";
 
-    private GroupBuyDto groupBuy;
+    // private GroupBuyDto groupBuy;
 
-    private UserDto user;
+    // private UserDto user;
 
     private List<OrderProductDto> orderProducts;
 

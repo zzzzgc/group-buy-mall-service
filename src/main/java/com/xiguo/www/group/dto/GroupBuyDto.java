@@ -30,7 +30,7 @@ public class GroupBuyDto extends BaseEntity implements Serializable {
 
     private boolean canNoutoasiakas = false;
 
-    private UserDto user;
+    // private UserDto user;
 
     private Set<GroupBuyNoutoasiakasDto> groupBuyNoutoasiakases;
 

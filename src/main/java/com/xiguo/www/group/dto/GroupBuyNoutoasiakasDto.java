@@ -23,7 +23,7 @@ public class GroupBuyNoutoasiakasDto extends BaseEntity implements Serializable 
 
     private String nickName = "";
 
-    private GroupBuyDto groupBuy;
+    // private GroupBuyDto groupBuy;
 
-    private NoutoasiakasDto noutoasiakas;
+    // private NoutoasiakasDto noutoasiakas;
 }

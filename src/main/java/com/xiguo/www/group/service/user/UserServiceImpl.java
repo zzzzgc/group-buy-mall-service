@@ -1,11 +1,14 @@
 package com.xiguo.www.group.service.user;
 
+import com.xiguo.www.group.entity.GroupBuy;
 import com.xiguo.www.group.entity.User;
 import com.xiguo.www.group.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import javax.persistence.EntityManager;
+import java.util.Set;
 
 /**
  * @author: ZGC
@@ -16,9 +19,15 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+    @Override
+    @Transactional()
+    public Set<User> findAllCareAboutUserGroupBuyInfo(Long userId) {
+        Set<User> allCareAboutUserGroupBuyInfo = userRepository.findAllCareAboutUserGroupBuyInfo(userId);
+        return allCareAboutUserGroupBuyInfo;
+    }
 
     @Override
-    public List<User> findAllCareAboutUserGroupBuyInfo(Long userId) {
-        return userRepository.findAllCareAboutUserGroupBuyInfo(userId);
+    public GroupBuy findByUserId(Long userId) {
+        return null;
     }
 }

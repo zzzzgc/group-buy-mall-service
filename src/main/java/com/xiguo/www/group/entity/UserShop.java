@@ -26,6 +26,7 @@ import java.io.Serializable;
 @Table(appliesTo = "user_shop", comment = "表注释")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"}, allowGetters = true)
 public class UserShop extends BaseEntity implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, columnDefinition = "varchar(12) COMMENT '店铺名称' ")
     private String shopName = "";
@@ -34,7 +35,7 @@ public class UserShop extends BaseEntity implements Serializable {
     @Column(nullable = false, columnDefinition = "varchar(25) COMMENT '店铺地址' ")
     private String address = "";
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne( fetch = FetchType.LAZY)
     private User user;
 
 }

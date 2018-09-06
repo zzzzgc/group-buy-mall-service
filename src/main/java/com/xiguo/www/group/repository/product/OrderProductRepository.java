@@ -1,4 +1,4 @@
-package com.xiguo.www.group.repository.order;
+package com.xiguo.www.group.repository.product;
 
 import com.xiguo.www.group.entity.OrderProduct;
 import org.springframework.data.jpa.repository.JpaRepository;

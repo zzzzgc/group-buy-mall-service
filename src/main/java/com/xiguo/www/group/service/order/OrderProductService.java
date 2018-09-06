@@ -1,6 +1,6 @@
 package com.xiguo.www.group.service.order;
 
-import com.xiguo.www.group.repository.order.OrderProductRepository;
+import com.xiguo.www.group.repository.product.OrderProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

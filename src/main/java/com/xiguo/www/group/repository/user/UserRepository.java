@@ -2,11 +2,10 @@ package com.xiguo.www.group.repository.user;
 
 import com.xiguo.www.group.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
-
-//import org.springframework.data.rest.core.annotation.RestResource;
 
 /**
  * @author ZGC
@@ -32,4 +31,13 @@ public interface  UserRepository extends JpaRepository<User, Long> ,UserReposito
     @RestResource(exported = false)
     @Override
     void delete(User entity);
+
+    /**
+     * api/users/search/findByGroupBuyId?groupBuyId = xxx
+     * @param groupBuyId
+     * @return
+     */
+    @RestResource(path = "findByGroupBuyId", rel = "findByGroupBuyId")
+    @Query("select u from GroupBuy gb  join User u on gb.user.id = u.id where gb.id = :groupBuyId")
+    User findByGroupBuyId(@Param("groupBuyId") Long groupBuyId);
 }
