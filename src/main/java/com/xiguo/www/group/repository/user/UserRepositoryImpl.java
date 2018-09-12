@@ -5,6 +5,7 @@ import com.xiguo.www.group.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -18,7 +19,11 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
 
     @Override
     public Set<User> findAllCareAboutUserGroupBuyInfo(Long userId) {
-        User user = userRepository.getOne(userId);
+        Optional<User> byId = userRepository.findById(userId);
+        if (!byId.isPresent())  {
+            // 抛异常?
+        }
+        User user = byId.get();
         HashSet<User> mUsers = new HashSet<>();
         for (UserCareAboutGroupBuy userCareAboutGroupBuy : user.getCareAboutGroupBuys()) {
             User otherUser = userCareAboutGroupBuy.getOtherUser();

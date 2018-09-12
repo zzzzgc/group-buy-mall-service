@@ -43,7 +43,7 @@ public class GroupBuy extends BaseEntity implements Serializable {
     private boolean canNoutoasiakas = false;
 
     @JoinColumn(name = "user_id")
-    @ManyToOne( fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH},optional = false)
+    @ManyToOne( fetch = FetchType.LAZY,optional = false)
     @JsonIgnore
     private User user = new User();
 
@@ -54,7 +54,7 @@ public class GroupBuy extends BaseEntity implements Serializable {
     private Set<GroupBuyProduct> groupBuyProducts;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "groupBuy")
-    @JsonIgnore
+//    @JsonIgnore
     private Set<Order> orders;
 
     public GroupBuy(Long id) {

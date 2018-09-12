@@ -25,7 +25,7 @@ public class UserDto  extends BaseEntity implements Serializable {
 
     private Date updatedAt;
 
-    private String wechatName = "";
+    private String weChatName = "";
 
     private String nickName = "";
 // 不输出

@@ -6,6 +6,7 @@ import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
 import com.xiguo.www.group.repository.product.OrderProductRepository;
 import com.xiguo.www.group.repository.order.OrderRepository;
 import com.xiguo.www.group.repository.user.*;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: ZGC
  * @date Created in 2018/8/27 下午 1:01
  */
+@Api(value="/temp", tags="临时服务模块")
 @RestController
 @RequestMapping("/temp")
 public class TemporaryController {

@@ -25,7 +25,7 @@ import java.util.Objects;
 
 @Entity(name = "group_buy_order_product")
 @Table(appliesTo = "group_buy_order_product", comment = "订单商品表")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"}, allowGetters = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"})
 public class OrderProduct extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, columnDefinition = "varchar(16) COMMENT '商品名称' ")

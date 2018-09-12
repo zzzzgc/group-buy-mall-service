@@ -3,6 +3,8 @@ package com.xiguo.www.group.repository.groupBuy;
 import com.xiguo.www.group.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -46,11 +48,17 @@ public class GroupBuyRepositoryImpl implements GroupBuyRepositoryInterface {
 
     @Override
     public GroupBuy findGroupBuyToGroupBuyProductImageById(Long groupBuyId) {
-        GroupBuy one = groupBuyRepository.getOne(groupBuyId);
+        Optional<GroupBuy> byId = groupBuyRepository.findById(groupBuyId);
+        if (!byId.isPresent()) {
+            // 抛异常?
+            return null;
+        }
+        GroupBuy one = byId.get();
         one.getGroupBuyNoutoasiakases().size();
         // groupBuyProducts 自带 image
         one.getGroupBuyProducts().size();
         one.getTitle();
         return one;
     }
+
 }

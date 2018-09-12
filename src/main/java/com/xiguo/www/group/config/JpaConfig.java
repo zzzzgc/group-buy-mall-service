@@ -25,14 +25,16 @@ public class JpaConfig {
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
         SimpleDateFormat defaultDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        SimpleDateFormat otherDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        SimpleDateFormat otherDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        SimpleDateFormat otherDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 //        DateFormat otherDateFormat = objectMapper.getDateFormat();
 
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
         ObjectMapper objectMapper = jsonConverter.getObjectMapper();
         objectMapper.registerModule(new Hibernate5Module());
-        objectMapper.setDateFormat(new MyDateFormat(defaultDateFormat,otherDateFormat));
+        objectMapper.setDateFormat(defaultDateFormat);
 //        objectMapper.registerModule(new Hibernate4Module());;
+//        objectMapper.setDateFormat(new MyDateFormat(defaultDateFormat,otherDateFormat));
         return jsonConverter;
     }
 

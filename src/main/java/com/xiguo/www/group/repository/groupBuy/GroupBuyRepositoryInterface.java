@@ -1,6 +1,9 @@
 package com.xiguo.www.group.repository.groupBuy;
 
 import com.xiguo.www.group.entity.GroupBuy;
+import com.xiguo.www.group.entity.User;
+
+import java.util.List;
 
 /**
  * @author: ZGC
@@ -29,4 +32,5 @@ public interface GroupBuyRepositoryInterface {
      * @return
      */
     GroupBuy findGroupBuyToGroupBuyProductImageById(Long groupBuyId);
+
 }

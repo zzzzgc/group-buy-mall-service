@@ -30,6 +30,20 @@ public class FileKit {
         out.close();
     }
 
+    /**
+     * 保存文件
+     *
+     * @param file 文件
+     * @param filePath 文件保存路径
+     * @param fileNameSuffix 文件名(带文件格式后缀的 .jpg .text)
+     * @throws IOException
+     */
+    public static String saveToUuidFile(byte[] file, String filePath, String fileNameSuffix) throws IOException {
+        String fileName =uuidKit.getUuid() + "." +fileNameSuffix;
+        saveFile(file,filePath,fileName);
+        return fileName;
+    }
+
 
     /**
      * 用uuid作为文件名的并保存文件,然后返回uuid文件名
@@ -44,4 +58,6 @@ public class FileKit {
         FileKit.saveFile(multipartFiles.getBytes(), fileSavePath, fileName);
         return fileName;
     }
+
+
 }

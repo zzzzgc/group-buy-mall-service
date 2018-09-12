@@ -61,7 +61,7 @@ public class Order extends BaseEntity implements Serializable {
     private String merchantRemark = "";
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+//    @JsonIgnore
     private GroupBuy groupBuy;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -69,9 +69,18 @@ public class Order extends BaseEntity implements Serializable {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+//    @JsonIgnore
     private User merchantUser;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "order")
     private List<OrderProduct> orderProducts;
+
+    public GroupBuy getGroupBuy() {
+        return groupBuy;
+    }
+
+    @JsonIgnore
+    public void setGroupBuy(GroupBuy groupBuy) {
+        this.groupBuy = groupBuy;
+    }
 }

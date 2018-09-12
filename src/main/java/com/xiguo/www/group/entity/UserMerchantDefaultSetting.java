@@ -25,7 +25,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(appliesTo = "user_merchant_default_setting", comment = "用户团长默认配置表")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"}, allowGetters = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"})
 public class UserMerchantDefaultSetting extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, columnDefinition = "bit(1) COMMENT '是否配送' ")

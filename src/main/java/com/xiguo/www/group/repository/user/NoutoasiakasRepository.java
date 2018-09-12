@@ -1,7 +1,6 @@
 package com.xiguo.www.group.repository.user;
 
 import com.xiguo.www.group.entity.Noutoasiakas;
-import com.xiguo.www.group.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,9 +16,6 @@ import java.util.List;
  */
 @RepositoryRestResource(collectionResourceRel = "noutoasiakases", path = "noutoasiakases")
 public interface NoutoasiakasRepository extends JpaRepository<Noutoasiakas, Long> {
-    // noutoasiakases
-    //
-
     /**
      * api/notoasiakas/search/findByUserId?userId=xxx
      * 根据用户名查找
@@ -27,7 +23,7 @@ public interface NoutoasiakasRepository extends JpaRepository<Noutoasiakas, Long
      * @return 指定条件的所有noutoasiakas
      */
     @RestResource(path = "findByUserId", rel = "findByUserId")
-    @Query(value="select * from Noutoasiakas where user_id=?1",nativeQuery=true)
+    @Query(value="select n from Noutoasiakas n where n.user.id=?1")
     List<Noutoasiakas> findByUserId(@Param("userId") Long userId);
 
 

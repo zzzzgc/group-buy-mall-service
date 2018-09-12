@@ -21,7 +21,7 @@ import java.util.Objects;
 @Data
 @Entity
 @Table(appliesTo = "group_buy_product_image", comment = "团购商品图片表")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"}, allowGetters = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updateAt"})
 public class GroupBuyProductImage extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

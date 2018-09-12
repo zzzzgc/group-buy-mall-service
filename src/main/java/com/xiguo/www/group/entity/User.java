@@ -28,7 +28,7 @@ public class User extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, columnDefinition = "varchar(16) COMMENT '微信昵称(刚进入平台时候的名称)' ")
-    private String wechatName = "";
+    private String weChatName = "";
     @Column(unique = true, columnDefinition = "varchar(16) COMMENT '用户昵称' ")
     private String nickName = "";
     @JsonIgnore
@@ -44,6 +44,10 @@ public class User extends BaseEntity implements Serializable {
     private String country = "";
     @Column(nullable = false, columnDefinition = "tinyint(1) COMMENT '性别 1男 2女' ")
     private int gender = 0;
+    @Column(nullable = false, columnDefinition = "varchar(200) COMMENT '微信支付二维码URL' ")
+    private String weChatPayQrCodeUrl = "";
+    @Column(nullable = false, columnDefinition = "varchar(180) COMMENT '支付宝支付二维码URL' ")
+    private String aliPayQrCodeUrl = "";
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<GroupBuy> groupBuys;

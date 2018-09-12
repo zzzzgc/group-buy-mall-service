@@ -24,7 +24,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(appliesTo = "user_shop", comment = "表注释")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"}, allowGetters = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"})
 public class UserShop extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

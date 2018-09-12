@@ -26,7 +26,7 @@ import java.util.Objects;
 
 @Entity
 @Table(appliesTo = "noutoasiakas", comment = "用户自提点表")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"}, allowGetters = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"})
 public class Noutoasiakas extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, columnDefinition = "varchar(70) COMMENT '地址' ")

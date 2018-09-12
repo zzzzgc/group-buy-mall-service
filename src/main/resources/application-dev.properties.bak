@@ -1,8 +1,8 @@
 
-system.wechat.appid=wx1cc947d90d3d6d8b
-system.wechat.appsecret=29de26d70a9ae03bd3bfcb06f9c0e99d
+system.weChat.appid=wx1cc947d90d3d6d8b
+system.weChat.appsecret=29de26d70a9ae03bd3bfcb06f9c0e99d
 # \u81EA\u5B9A\u4E49\u6587\u4EF6\u4E0A\u4F20\u8DEF\u5F84
-system.web.upload.path=G:/zhioProject/demo\u9879\u76EE/wechat\u7684demo/wepy\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F\u5F00\u53D1\u6846\u67B6demo/groupBuy/src/main/resources/static
+system.web.upload.path=G:/zhioProject/demo\u9879\u76EE/weChat\u7684demo/wepy\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F\u5F00\u53D1\u6846\u67B6demo/groupBuy/src/main/resources/static
 system.web.domain.url=http://localhost:8100
 # \u53C2\u8003 spring.mvc.static-path-pattern
 system.web.file.url.prefix=${system.web.domain.url}/f

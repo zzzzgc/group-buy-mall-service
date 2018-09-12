@@ -2,7 +2,11 @@ package com.xiguo.www.group.controller;
 
 import com.xiguo.www.group.enums.FileUploadUrl;
 import com.xiguo.www.group.enums.RETemplate;
+import com.xiguo.www.group.service.FileService;
 import com.xiguo.www.group.utils.FileKit;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +24,7 @@ import java.util.regex.Pattern;
  * @author: ZGC
  * @date Created in 2018/8/30 下午 2:27
  */
+@Api(value="/file", tags="文件服务模块")
 @RestController
 @RequestMapping("/file")
 public class FileController {
@@ -29,17 +34,16 @@ public class FileController {
     @Value("${system.web.domain.url}")
     private String domainUrl;
 
+    @Autowired
+    FileService fileService;
+
     /**
      * 文件保存路径
      */
     @Value("${system.web.file.upload.path}")
     private String saveRootPath;
 
-    /**
-     * 文件下载路径
-     */
-    @Value("${system.web.file.download.path}")
-    private String readRootPath;
+
 
     /**
      * 保存文件
@@ -54,7 +58,8 @@ public class FileController {
      * @return 文件转url的集合
      */
     @PostMapping
-    public ResponseEntity updateFiles(@RequestParam("file") List<MultipartFile> multipartFiles, @RequestParam(value = "fileType", defaultValue = "3") int fileType) {
+    @ApiOperation("文件上传接口")
+    public ResponseEntity uploadFiles(@RequestParam("file") List<MultipartFile> multipartFiles, @RequestParam(value = "fileType", defaultValue = "3") int fileType) {
         List<String> fileHttpUrls = new ArrayList<>();
         for (MultipartFile multipartFile : multipartFiles) {
             if (multipartFile.isEmpty()) {
@@ -76,39 +81,12 @@ public class FileController {
      * 删除路径: file/asdfadsflajsdflj.jpg
      */
     @PutMapping
+    @ApiOperation("文件删除接口")
     public ResponseEntity deleteFile(@RequestBody List<String> fileHttpUrls) {
-        String clippingPathPattern = "/[\\w]+/[\\w\\d]+.[\\w]+$";
         for (String fileHttpUrl : fileHttpUrls) {
-            Matcher matcher = Pattern.compile(clippingPathPattern).matcher(fileHttpUrl);
-            while (matcher.find()) {
-                String fileRelativePath = matcher.group();
-                String fileSavePath = saveRootPath + fileRelativePath;
-                File file = new File(fileSavePath);
-                if (!file.exists()) {
-                    return RETemplate.reject("文件不存在");
-                }
-                if (!file.delete()) {
-                    return RETemplate.failure();
-                }
-            }
+            boolean b = fileService.deleteFileByUrl(fileHttpUrl);
         }
         return RETemplate.ok();
-    }
-
-    public static void main(String[] args) {
-//        String url = "http://groupBuy.52xiguo.com/f/file/4d842a83d3cb42b09f553476f84fd7f4.png";
-//        String clippingPathPattern = "/[\\w]+/[\\w\\d]+.[\\w]+$";
-//        Pattern compile = Pattern.compile(clippingPathPattern);
-//        Matcher matcher = compile.matcher(url);
-//        System.out.println(matcher.group());
-
-        System.out.println(System.getProperty("file.separator"));
-
-//        int index = url.lastIndexOf("/");
-//        String fileRelativePath = url.substring(0,index).substring(url.lastIndexOf("/")) + url.substring(index);
-////        String fileSavePath = saveRootPath + fileRelativePath;
-//        String fileSavePath = "G:/zhioProject/demo项目/wechat的demo/wepy微信小程序开发框架demo/groupBuy/src/main/resources/static"+ fileRelativePath;
-//        System.out.println(fileSavePath);
     }
 
 
@@ -117,7 +95,7 @@ public class FileController {
      *
      * @param fileType      文件类型
      * @param multipartFile 文件
-     * @return 文件url
+     * @return 文件的url
      */
     private String _fileClassify(int fileType, MultipartFile multipartFile) {
         String fileRelativePath = null;
@@ -134,13 +112,6 @@ public class FileController {
             default:
                 fileRelativePath = FileUploadUrl.COMMON_FILE_PATH.getValue();
         }
-        String fileSavePath = saveRootPath + fileRelativePath;
-        String fileHttpUrl = null;
-        try {
-            fileHttpUrl = readRootPath + fileRelativePath + "/" + FileKit.saveToUuidFile(multipartFile, fileSavePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return fileHttpUrl;
+        return fileService.saveFile(multipartFile, fileRelativePath);
     }
 }

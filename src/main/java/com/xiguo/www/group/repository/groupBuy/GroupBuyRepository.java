@@ -1,7 +1,6 @@
 package com.xiguo.www.group.repository.groupBuy;
 
 import com.xiguo.www.group.entity.GroupBuy;
-import com.xiguo.www.group.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -29,10 +28,20 @@ public interface GroupBuyRepository extends JpaRepository<GroupBuy, Long>, Group
     @Query(value = "select gbr from #{#entityName} gbr where gbr.user.id = :userId")
     List<GroupBuy> findByUserId(@Param("userId") Long userId);
 
+    /**
+     * @param userId
+     * @param status
+     * @return
+     */
     @RestResource(path = "findByStatusAndSelfId", rel = "findByStatusAndSelfId")
     @Query(value = "select gbr from GroupBuy gbr where gbr.status = :status and gbr.user.id = :userId")
     List<GroupBuy> findByStatusAndUser(@Param("userId") Long userId, @Param("status") int status);
 
+    /**
+     * @param userId
+     * @param status
+     * @return
+     */
+    List<GroupBuy> findByUser_IdAndStatusIn(Long userId, List<Integer> status);
 
-    GroupBuy findByUserAndId(User user, Long groupBuyId);
 }

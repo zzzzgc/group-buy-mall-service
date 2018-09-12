@@ -79,7 +79,7 @@ public class Tools {
     }
 
 
-    public static void main(String[] args) {
-        createFunctionCode(GroupBuy.class, new String[]{"serialVersionUID","createAt","updatedAt"},new String[]{"Set"}, true, false);
-    }
+//    public static void main(String[] args) {
+//        createFunctionCode(GroupBuy.class, new String[]{"serialVersionUID","createAt","updatedAt"},new String[]{"Set"}, true, false);
+//    }
 }

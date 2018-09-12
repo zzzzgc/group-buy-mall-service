@@ -9,9 +9,21 @@ import com.xiguo.www.group.entity.Order;
 public interface OrderInterface {
     /**
      * 保存订单
-     * @param order 订单
+     *
+     * @param order          订单
+     * @param groupBuyId
      * @param merchantUserId
      * @return 订单
      */
-    public Order save(Order order, Long userId, Long merchantUserId);
+    Order save(Order order, Long groupBuyId, Long userId, Long merchantUserId);
+
+    /**
+     * 根据订单id获取订单详细
+     * order -> groupBuy -> noutoasiakas
+     * order -> orderProduct
+     *
+     * @param orderId 订单id
+     * @return 订单详细
+     */
+    Order findDetailById(Long orderId);
 }

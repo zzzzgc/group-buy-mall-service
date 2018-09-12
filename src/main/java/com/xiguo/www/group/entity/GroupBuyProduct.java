@@ -22,7 +22,7 @@ import java.util.Set;
 
 @Entity
 @Table(appliesTo = "group_buy_product", comment = "团购商品表")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"}, allowGetters = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"})
 public class GroupBuyProduct extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, columnDefinition = "varchar(16) COMMENT '名称' ")

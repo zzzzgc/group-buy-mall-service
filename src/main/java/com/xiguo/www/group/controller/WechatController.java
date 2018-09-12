@@ -1,50 +1,34 @@
 package com.xiguo.www.group.controller;
 
-import com.xiguo.www.group.repository.groupBuy.*;
-import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
-import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
-import com.xiguo.www.group.repository.product.OrderProductRepository;
-import com.xiguo.www.group.repository.order.OrderRepository;
-import com.xiguo.www.group.repository.user.*;
+import com.xiguo.www.group.enums.RETemplate;
+import com.xiguo.www.group.service.WeCharService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 微信服务
+ *
  * @author: ZGC
  * @date Created in 2018/8/28 下午 12:24
  */
-@RestController("/wechat")
+@Api(value="/weChat", tags="微信服务模块")
+@RestController
+@RequestMapping("/weChat")
 public class WechatController {
 
     @Autowired
-    private GroupBuyNoutoasiakasRepository groupBuyNoutoasiakasRepository;
-    @Autowired
-    private GroupBuyProductRepository groupBuyProductRepository;
-    @Autowired
-    private GroupBuyProductImageRepository groupBuyProductsImagesRepository;
-    @Autowired
-    private GroupBuyRepository groupBuyRepository;
-    @Autowired
-    private NoutoasiakasRepository noutoasiakasRepository;
-    @Autowired
-    private OrderProductRepository orderProductRepository;
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private UserCareAboutGroupBuyRepository userCareAboutGroupBuyRepository;
-    @Autowired
-    private UserCustomerDefaultSettingRepository userCustomerDefaultSettingRepository;
-    @Autowired
-    private UserMerchantDefaultSettingRepository userMerchantDefaultSettingRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserShopRepository userShopRepository;
+    WeCharService weCharService;
 
-//    @GetMapping("/{id}")
-//    public GroupBuyDto getGroupBuy(@PathVariable Long id) {
-//        return groupBuyRepository.getOne(id);
-//    }
+    @PostMapping("/qrCode")
+    @ApiOperation("二维码生成接口")
+    public ResponseEntity getQrCode(String pagePath, String param) {
+        String qrCodeByB = weCharService.createQrCodeByB(pagePath, param);
+        return RETemplate.ok(qrCodeByB);
+    }
 
 }
