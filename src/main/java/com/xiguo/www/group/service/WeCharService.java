@@ -53,8 +53,10 @@ public class WeCharService {
     }
 
     /**
-     * 获取微信小程序码 接口B
-     *
+     * 获取微信小程序码
+     * 接口B
+     * 适用于需要的码数量极多的业务场景
+     * 通过该接口生成的小程序码，永久有效，数量暂无限制。
      * @param pagePath 小程序路径
      * @param param    携带参数
      * @return 二维码URL
@@ -62,7 +64,9 @@ public class WeCharService {
     public String createQrCodeByB(String pagePath, String param) {
         String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=" + WeCharService.getAccessToken();
         Map<String, Object> requestMap = new HashMap<>(2);
+        // 必须是已经发布的小程序存在的页面（否则报错），例如 "pages/index/index" ,根路径前不要填加'/',不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面
         requestMap.put("page", pagePath);
+        // 最大32个可见字符，只支持数字，大小写英文以及部分特殊字符：!#$&'()*+,/:;=?@-._~，其它字符请自行编码为合法字符（因不支持%，中文无法使用 urlencode 处理，请使用其他编码方式）
         requestMap.put("scene", param);
         String requestJson = null;
         try {
@@ -92,5 +96,16 @@ public class WeCharService {
 
     public static String getAccessToken() {
         return accessToken;
+    }
+
+    /**
+     * 微信小程序密文解密
+     * @param sessionKey 用户对应的sessionKey
+     * @param vi 偏移向量
+     * @param encryptedData 密文
+     * @return 内容
+     */
+    public String decrypt(String sessionKey,String vi,String encryptedData){
+        return null;
     }
 }

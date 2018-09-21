@@ -1,18 +1,19 @@
 package com.xiguo.www.group.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Table;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.Objects;
 
 /**
  * @author ZGC
@@ -38,31 +39,10 @@ public class OrderProduct extends BaseEntity implements Serializable {
     private int number = 0;
 
     @ManyToOne(fetch = FetchType.LAZY)
-//    @JsonIgnore
     private GroupBuyProduct groupBuyProduct;
-
-    @Transient
-//    @Basic()
-    private Long groupBuyProductId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Order order;
 
-//    @JsonIgnore
-//    public GroupBuyProduct getGroupBuyProduct() {
-//        return groupBuyProduct;
-//    }
-//
-//    public void setGroupBuyProduct(GroupBuyProduct groupBuyProduct) {
-//        this.groupBuyProduct = groupBuyProduct;
-//    }
-
-//    public Long getGroupBuyProductId() {
-//        return groupBuyProductId;
-//    }
-//
-//    public void setGroupBuyProductId(Long groupBuyProductId) {
-//        this.groupBuyProductId = groupBuyProductId;
-//    }
 }

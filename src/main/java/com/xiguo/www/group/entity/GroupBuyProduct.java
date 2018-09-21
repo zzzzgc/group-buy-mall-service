@@ -15,8 +15,8 @@ import java.util.Set;
  * @author ZGC
  * @date Created in 下午 5:31 2018/8/25
  */
-@ToString(callSuper = true, exclude = {"groupBuy", "groupBuyProductImages", "orderProducts"})
-@EqualsAndHashCode(callSuper = true, exclude = {"groupBuy", "groupBuyProductImages", "orderProducts"})
+@ToString(callSuper = true, exclude = {"groupBuy", "groupBuyProductImages", "orderProducts", "product"})
+@EqualsAndHashCode(callSuper = true, exclude = {"groupBuy", "groupBuyProductImages", "orderProducts", "product"})
 @Getter
 @Setter
 
@@ -29,14 +29,16 @@ public class GroupBuyProduct extends BaseEntity implements Serializable {
     private String name = "";
     @Column(nullable = false, columnDefinition = "varchar(50) COMMENT '描述' ")
     private String descriptor = "";
-    @Column(nullable = false, columnDefinition = "decimal(8,2) COMMENT '商品价格' ")
+    @Column(nullable = false, columnDefinition = "decimal(8,2) COMMENT '商品价格(元)' ")
     private BigDecimal price = new BigDecimal(0.00);
-    @Column(nullable = false, columnDefinition = "bit(1) COMMENT '是否不限制刷领 ' ")
+    @Column(nullable = false, columnDefinition = "bit(1) COMMENT '是否不限制数量(份)' ")
     private Boolean limitQuantity = false;
     @Column(nullable = false, columnDefinition = "smallint(10) COMMENT '限制的数量(库存)' ")
-    private Integer quantity = 0;
-    @Column(nullable = false, columnDefinition = "smallint(10) COMMENT '销售总数' ")
+    private Integer inventory = 0;
+    @Column(nullable = false, columnDefinition = "smallint(10) COMMENT '销售总数(份)' ")
     private Integer sellTotalNumber = 0;
+    @Column(nullable = false, columnDefinition = "decimal(5,2) COMMENT '商品比重, 多少份团购商品等于一件商品 , 例如 2 = 2份为一件, 0.2 = 1份为五件' ")
+    private BigDecimal replacementRatio = new BigDecimal(1);
 
     /**
      * 商品必须维护到团购
@@ -54,4 +56,7 @@ public class GroupBuyProduct extends BaseEntity implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "groupBuyProduct")
     @JsonIgnore
     private Set<OrderProduct> orderProducts;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Product product;
 }

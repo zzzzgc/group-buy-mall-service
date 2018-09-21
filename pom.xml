@@ -37,6 +37,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.springframework.boot</groupId>-->
+                    <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
         </dependency>
 
         <dependency>
@@ -111,6 +117,19 @@
             <version>2.9.0.pr4</version>
         </dependency>
 
+        <!--tomcat需要的包-->
+        <!--<dependency>-->
+            <!--<groupId>javax.servlet</groupId>-->
+            <!--<artifactId>javax.servlet-api</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <!--接口监控-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!--redis-->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
@@ -131,6 +150,19 @@
         <!--<groupId>org.springframework.session</groupId>-->
         <!--<artifactId>spring-session-data-redis</artifactId>-->
         <!--</dependency>-->
+
+        <!--部署成war包时开启↓↓↓↓-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--部署成war包时开启↑↑↑↑-->
     </dependencies>
 
     <build>
@@ -141,6 +173,7 @@
                 <!--把热部署插件加载到插件中-->
                 <configuration>
                     <fork>true</fork>
+                    <executable>true</executable>
                 </configuration>
             </plugin>
         </plugins>

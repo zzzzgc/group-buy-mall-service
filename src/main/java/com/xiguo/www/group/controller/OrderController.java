@@ -47,14 +47,15 @@ public class OrderController {
 
     @GetMapping("/merchant")
     @ApiOperation("用商户id获取所有订单")
-    public ResponseEntity findByMerchantUserId(HttpSession session) {
+    public ResponseEntity findByMerchantUserId(HttpSession session,@RequestParam int searchType,@RequestParam String searchText) {
 //        Long userId = 1L;
         Long userId = (Long) session.getAttribute(SessionKey.USER_ID.toString());
-        List<Order> orders = orderService.findByMerchantUserId(userId);
+        List<Order> orders = orderService.findByMerchantUserId(userId, searchType,  searchText);
         return ResponseEntity.ok(orders);
     }
 
     @GetMapping("/detail/{orderId}")
+    @ApiOperation("获取详细订单")
     public ResponseEntity findDetailById(@PathVariable Long orderId) {
         Order order = orderService.findDetailById(orderId);
         return RETemplate.ok(order);

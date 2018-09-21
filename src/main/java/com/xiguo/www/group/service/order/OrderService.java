@@ -3,7 +3,6 @@ package com.xiguo.www.group.service.order;
 import com.xiguo.www.group.entity.Order;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author: ZGC
@@ -31,9 +30,11 @@ public interface OrderService {
      * 根据商家用户id获取订单
      * 后期扩展分页给出信息
      * @param userId 商家用户id
+     * @param searchType
+     * @param searchText
      * @return 订单集合
      */
-    List<Order> findByMerchantUserId(Long userId);
+    List<Order> findByMerchantUserId(Long userId, int searchType, String searchText);
 
 
 }

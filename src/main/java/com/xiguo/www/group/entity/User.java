@@ -48,6 +48,11 @@ public class User extends BaseEntity implements Serializable {
     private String weChatPayQrCodeUrl = "";
     @Column(nullable = false, columnDefinition = "varchar(180) COMMENT '支付宝支付二维码URL' ")
     private String aliPayQrCodeUrl = "";
+    @Column(nullable = false, columnDefinition = "varchar(14) COMMENT '手机号码,国外手机可能包含区号' ")
+    private String phone = "";
+    @Column(nullable = false, columnDefinition = "varchar(11) COMMENT '团长权限, 0无权限 1有权限' ")
+    private int openGroupPermissions = 0;
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<GroupBuy> groupBuys;

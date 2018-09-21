@@ -51,7 +51,7 @@ public class Order extends BaseEntity implements Serializable {
     private String phone = "";
     @Column(nullable = false, columnDefinition = "varchar(16) COMMENT '团购名称' ")
     private String groupBuyName = "";
-    @Column(nullable = false, columnDefinition = "decimal(8,2) COMMENT '总金额' ")
+    @Column(nullable = false, columnDefinition = "decimal(10,2) COMMENT '总金额' ")
     private BigDecimal totalPrice = new BigDecimal(0.00);
     @Column(nullable = false, columnDefinition = "decimal(8,2) COMMENT '支付金额' ")
     private BigDecimal payPrice = new BigDecimal(0.00);

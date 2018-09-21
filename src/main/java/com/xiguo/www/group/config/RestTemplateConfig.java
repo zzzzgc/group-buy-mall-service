@@ -66,7 +66,7 @@ public class RestTemplateConfig {
 
                 // 设置restful接口允许暴露id的数据库实体表
 //                config.exposeIdsFor(exposeIdsForBean);
-//                config.exposeIdsFor(User.class, GroupBuy.class, Order.class,Noutoasiakas.class);
+//                config.exposeIdsFor(User.class, groupBuy.class, Order.class,Noutoasiakas.class);
             }
         };
     }

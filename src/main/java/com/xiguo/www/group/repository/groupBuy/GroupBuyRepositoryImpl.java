@@ -29,7 +29,7 @@ public class GroupBuyRepositoryImpl implements GroupBuyRepositoryInterface {
         if (groupBuyProducts != null) {
             groupBuyProducts.forEach(
                     groupBuyProduct -> {
-                        // groupBuyProduct -> GroupBuy
+                        // groupBuyProduct -> groupBuy
                         groupBuyProduct.setGroupBuy(groupBuy);
                         Set<GroupBuyProductImage> groupBuyProductImages = groupBuyProduct.getGroupBuyProductImages();
                         if (groupBuyProductImages != null) {
@@ -40,8 +40,8 @@ public class GroupBuyRepositoryImpl implements GroupBuyRepositoryInterface {
         }
 
         groupBuy.setUser(new User(userId));
-        // GroupBuy <=> groupBuyNoutoasiakas
-        // User <- GroupBuy <-> GroupBuyProduct -> groupBuyProductImage 因为user是已存在的,所以只用单向关联
+        // groupBuy <=> groupBuyNoutoasiakas
+        // User <- groupBuy <-> GroupBuyProduct -> groupBuyProductImage 因为user是已存在的,所以只用单向关联
         groupBuyRepository.save(groupBuy);
         return groupBuy;
     }

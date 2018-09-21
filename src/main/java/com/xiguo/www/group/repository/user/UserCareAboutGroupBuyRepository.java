@@ -25,4 +25,13 @@ public interface UserCareAboutGroupBuyRepository extends JpaRepository<UserCareA
     @RestResource(path = "findByUserId", rel = "findByUserId")
     @Query("select uca from UserCareAboutGroupBuy uca where uca.user.id = :userId")
     List<UserCareAboutGroupBuy> findByUserId(@Param("userId")Long userId);
+
+    /**
+     * 获取用户关注对象的关联关系
+     * @param userId
+     * @param careAboutUserId
+     * @return
+     */
+    UserCareAboutGroupBuy findByUser_IdAndOtherUser_Id(Long userId,Long careAboutUserId);
+
 }

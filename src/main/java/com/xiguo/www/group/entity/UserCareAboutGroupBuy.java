@@ -1,17 +1,11 @@
 package com.xiguo.www.group.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Table;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
 
 /**
  * @author ZGC
@@ -24,7 +18,8 @@ import java.util.Objects;
 
 @Data
 @Entity
-@Table(appliesTo = "user_care_about_group_buy", comment = "用户关注团长表")
+//@Table
+@Table(indexes = {@Index(name = "ux_user_care_about_user_other_user", columnList = "user_id,care_about_user_id", unique = true)})
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"})
 public class UserCareAboutGroupBuy extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;

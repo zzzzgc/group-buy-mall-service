@@ -18,6 +18,7 @@ public interface OrderRepository extends JpaRepository<Order, Long>, OrderInterf
     /**
      * 根据用户id获取订单
      * 后期扩展分页给出信息
+     *
      * @param userId 客户用户id
      * @return 订单集合
      */
@@ -25,11 +26,24 @@ public interface OrderRepository extends JpaRepository<Order, Long>, OrderInterf
     List<Order> findByCustomerUserId(@Param("userId") Long userId);
 
     /**
-     * 根据用户id获取订单
+     * 根据用户id和关键字获取订单
      * 后期扩展分页给出信息
-     * @param userId 客户用户id
+     *
+     * @param userId     客户用户id
+     * @param searchText 查询内容
      * @return 订单集合
      */
-    @Query("select o from group_buy_order o join fetch o.orderProducts where o.merchantUser.id = :userId group by o.id order by o.isDelivery asc,o.id asc")
-    List<Order> findByMerchantUserId(@Param("userId") Long userId);
+    @Query(value = "select o from group_buy_order o join fetch o.orderProducts where o.merchantUser.id = :userId and o.userName like concat('%',:searchText,'%') group by o.id order by o.isDelivery asc,o.id desc")
+    List<Order> findByMerchantUserIdAndSearchKey(@Param("userId") Long userId, @Param("searchText") String searchText);
+
+    /**
+     * 根据用户id和订单号获取订单
+     * 后期扩展分页给出信息
+     *
+     * @param userId     客户用户id
+     * @param searchText 查询内容
+     * @return 订单集合
+     */
+    @Query(value = "select o from group_buy_order o join fetch o.orderProducts where o.merchantUser.id = :userId and o.id  like concat('%',:searchText,'%') group by o.id order by o.isDelivery asc,o.id desc")
+    List<Order> findByMerchantUserIdAndId(@Param("userId") Long userId, @Param("searchText") String searchText);
 }

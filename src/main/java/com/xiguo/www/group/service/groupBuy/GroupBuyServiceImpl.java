@@ -1,4 +1,4 @@
-package com.xiguo.www.group.service.GroupBuy;
+package com.xiguo.www.group.service.groupBuy;
 
 import com.xiguo.www.group.entity.GroupBuy;
 import com.xiguo.www.group.repository.groupBuy.GroupBuyRepository;
