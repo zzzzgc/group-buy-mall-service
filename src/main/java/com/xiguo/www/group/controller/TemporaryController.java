@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 临时汇总服务
+ *
  * @author: ZGC
  * @date Created in 2018/8/27 下午 1:01
  */
-@Api(value="/temp", tags="临时服务模块")
+@Api(value = "/temp", tags = "临时服务模块")
 @RestController
 @RequestMapping("/temp")
 public class TemporaryController {

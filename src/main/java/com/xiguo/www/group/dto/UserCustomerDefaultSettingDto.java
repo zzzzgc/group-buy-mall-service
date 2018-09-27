@@ -22,11 +22,11 @@ public class UserCustomerDefaultSettingDto extends BaseEntity implements Seriali
     private Date createAt;
 
     private Date updatedAt;
-    
+
     private String name = "";
-    
+
     private Integer phone = 0;
-    
+
     private String address = "";
 
     // private UserDto user;

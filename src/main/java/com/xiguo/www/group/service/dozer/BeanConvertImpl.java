@@ -14,12 +14,13 @@ import java.util.Set;
 /**
  * bean转换复制的实现类
  * po -> dto
+ *
  * @author: ZGC
  * @date Created in 2018/8/31 下午 9:52
  */
 @Component("beanConvert")
 @Lazy(true)
-public class BeanConvertImpl implements BeanConvert{
+public class BeanConvertImpl implements BeanConvert {
     @Autowired
     protected Mapper dozerMapper;
 

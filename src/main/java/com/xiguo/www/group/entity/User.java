@@ -17,7 +17,7 @@ import java.util.Set;
  * @date Created in 下午 10:03 2018/8/24
  */
 @ToString(callSuper = true, exclude = {"customerOrders", "groupBuys", "orders", "userShop", "userMerchantDefaultSettings", "customerDefaultSettings", "careAboutGroupBuys", "noutoasiakas"})
-@EqualsAndHashCode(callSuper = true, exclude = {"customerOrders","groupBuys", "orders", "userShop", "userMerchantDefaultSettings", "customerDefaultSettings", "careAboutGroupBuys", "noutoasiakas"})
+@EqualsAndHashCode(callSuper = true, exclude = {"customerOrders", "groupBuys", "orders", "userShop", "userMerchantDefaultSettings", "customerDefaultSettings", "careAboutGroupBuys", "noutoasiakas"})
 @Getter
 @Setter
 
@@ -67,16 +67,16 @@ public class User extends BaseEntity implements Serializable {
     @JsonIgnore
     private UserShop userShop;
 
-    @OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<UserMerchantDefaultSetting> userMerchantDefaultSettings;
 
-    @OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<UserCustomerDefaultSetting> customerDefaultSettings;
 
-    @OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<UserCareAboutGroupBuy> careAboutGroupBuys;
 
-    @OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Noutoasiakas> noutoasiakas;
 
     public User(Long id) {

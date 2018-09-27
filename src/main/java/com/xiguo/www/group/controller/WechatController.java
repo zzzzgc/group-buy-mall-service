@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * @author: ZGC
  * @date Created in 2018/8/28 下午 12:24
  */
-@Api(value="/weChat", tags="微信服务模块")
+@Api(value = "/weChat", tags = "微信服务模块")
 @RestController
 @RequestMapping("/weChat")
 public class WechatController {

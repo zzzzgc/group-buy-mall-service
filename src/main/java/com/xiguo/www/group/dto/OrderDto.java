@@ -13,8 +13,8 @@ import java.util.Objects;
  * @author: ZGC
  * @date Created in 2018/8/31 下午 8:57
  */
-@ToString(callSuper = true, exclude = {"groupBuy", "user","orderProducts"})
-@EqualsAndHashCode(callSuper = true, exclude = {"groupBuy", "user","orderProducts"})
+@ToString(callSuper = true, exclude = {"groupBuy", "user", "orderProducts"})
+@EqualsAndHashCode(callSuper = true, exclude = {"groupBuy", "user", "orderProducts"})
 @Getter
 @Setter
 public class OrderDto extends BaseEntity implements Serializable {

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @author: ZGC
  * @date Created in 2018/8/28 下午 12:24
  */
-@Api(value="/product", tags="商品服务模块")
+@Api(value = "/product", tags = "商品服务模块")
 @RestController
 @RequestMapping("/product")
 public class ProductController {

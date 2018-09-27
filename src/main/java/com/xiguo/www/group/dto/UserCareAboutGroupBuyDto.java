@@ -15,7 +15,7 @@ import java.util.Objects;
 @EqualsAndHashCode(callSuper = true, exclude = {"user", "otherUser"})
 @Getter
 @Setter
-public class UserCareAboutGroupBuyDto extends BaseEntity  implements Serializable {
+public class UserCareAboutGroupBuyDto extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
 

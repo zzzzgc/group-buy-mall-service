@@ -19,13 +19,13 @@ import java.util.Objects;
 public class OrderProductDto extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name = "";
-    
+
     private String imageUrl = "";
-    
+
     private BigDecimal price = new BigDecimal(0.00);
-    
+
     private int number = 0;
-    
+
     // private GroupBuyProductDto groupBuyProduct;
 
     // private OrderDto order;

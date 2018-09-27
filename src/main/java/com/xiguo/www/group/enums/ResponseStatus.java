@@ -2,6 +2,7 @@ package com.xiguo.www.group.enums;
 
 /**
  * API访问响应实体的状态枚举
+ *
  * @author: ZGC
  * @date Created in 2018/8/27 下午 6:12
  */

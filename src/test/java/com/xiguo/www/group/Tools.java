@@ -34,7 +34,7 @@ public class Tools {
 
         if (returnGettingFunctionName) {
             for (String fieldName : fieldsNameAndType.keySet()) {
-                System.out.println(fieldsNameAndType.get(fieldName) + " " + fieldName + " = " +toLowerCaseFirstOne(simpleName) + ".get" + toUpperCaseFirstOne(fieldName) + "();");
+                System.out.println(fieldsNameAndType.get(fieldName) + " " + fieldName + " = " + toLowerCaseFirstOne(simpleName) + ".get" + toUpperCaseFirstOne(fieldName) + "();");
             }
             System.out.println("以上是您需要的Getting方法");
         }
@@ -49,7 +49,8 @@ public class Tools {
             declaredField.isAccessible();
             String fieldName = declaredField.getName();
             String fieldType = declaredField.getType().getSimpleName();
-            if (!useArraysBinarySearch(ignoreFields, fieldName)) if (!useArraysBinarySearch(ignoreTypes, fieldType)) FieldsNameAndType.put(fieldName, fieldType);
+            if (!useArraysBinarySearch(ignoreFields, fieldName))
+                if (!useArraysBinarySearch(ignoreTypes, fieldType)) FieldsNameAndType.put(fieldName, fieldType);
         }
         return FieldsNameAndType;
     }

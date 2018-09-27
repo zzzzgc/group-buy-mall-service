@@ -10,7 +10,8 @@ import java.util.Set;
 public interface BeanConvert {
     /**
      * 单个对象的深度复制及类型转换，vo/domain , po
-     * @param s 数据对象
+     *
+     * @param s   数据对象
      * @param clz 复制目标类型
      * @return 数据对象
      */
@@ -26,7 +27,8 @@ public interface BeanConvert {
 
     /**
      * list的深度复制
-     * @param s 数据对象
+     *
+     * @param s   数据对象
      * @param clz 复制目标类型
      * @return 数据对象
      */
@@ -34,7 +36,8 @@ public interface BeanConvert {
 
     /**
      * set深度复制
-     * @param s 数据对象
+     *
+     * @param s   数据对象
      * @param clz 复制目标类型
      * @return 数据对象
      */
@@ -42,7 +45,8 @@ public interface BeanConvert {
 
     /**
      * 数组深度复制
-     * @param s 数据对象
+     *
+     * @param s   数据对象
      * @param clz 复制目标类型
      * @return 数据对象
      */

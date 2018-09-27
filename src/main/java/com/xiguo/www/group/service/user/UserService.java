@@ -24,22 +24,26 @@ public interface UserService {
 
     /**
      * 获取用户的所有团购进行中的团购
+     *
      * @param userId 用户id
      * @return 进行中的团购
      */
     GroupBuy findByUserId(Long userId);
+
     /**
      * 根据订单id获取用户二维码
+     *
      * @param userId 用户id
      * @return 支付二维码集合
      */
-    Map<String,String> findPayQrCodeById(Long userId);
+    Map<String, String> findPayQrCodeById(Long userId);
 
     /**
      * 用户登录
+     *
      * @param code 微信code
      * @param user 用户信息
-     * @return 用户信息,为null视为登录失败
+     * @return 用户信息, 为null视为登录失败
      */
     Map login(String code, User user, HttpSession session);
 

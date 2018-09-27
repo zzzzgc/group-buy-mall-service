@@ -19,11 +19,12 @@ public interface NoutoasiakasRepository extends JpaRepository<Noutoasiakas, Long
     /**
      * api/notoasiakas/search/findByUserId?userId=xxx
      * 根据用户名查找
+     *
      * @param userId 用户对象
      * @return 指定条件的所有noutoasiakas
      */
     @RestResource(path = "findByUserId", rel = "findByUserId")
-    @Query(value="select n from Noutoasiakas n where n.user.id=?1")
+    @Query(value = "select n from Noutoasiakas n where n.user.id=?1")
     List<Noutoasiakas> findByUserId(@Param("userId") Long userId);
 
 

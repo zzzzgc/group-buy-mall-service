@@ -23,20 +23,20 @@ public class GroupBuyProductDto extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String name = "";
-    
+
     private String descriptor = "";
-    
+
     private BigDecimal price = new BigDecimal(0.00);
-    
+
     private Boolean limitQuantity = false;
-    
+
     private Integer quantity = 0;
-    
+
     private Integer sellTotalNumber = 0;
-    
+
     // private GroupBuyDto groupBuy;
-    
-    private Set<GroupBuyProductImageDto> groupBuyProductImages=new HashSet<>();
-    
-    private Set<OrderProductDto> orderProducts =new HashSet<>();
+
+    private Set<GroupBuyProductImageDto> groupBuyProductImages = new HashSet<>();
+
+    private Set<OrderProductDto> orderProducts = new HashSet<>();
 }

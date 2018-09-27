@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
-import java.security.Security;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
@@ -38,7 +37,7 @@ public class WeCharService {
     @Autowired
     FileService fileService;
 
-    String DEFAULT_CHARSET = "UTF-8";
+    private static String DEFAULT_CHARSET = "UTF-8";
 
     /**
      * 更新accessToken
@@ -121,8 +120,8 @@ public class WeCharService {
         if (keyByte.length % base != 0) {
             int groups = keyByte.length / base + 1;
             byte[] temp = new byte[groups * base];
-            Arrays.fill(temp,(byte)0);
-            System.arraycopy(keyByte,0 ,temp,0,keyByte.length);
+            Arrays.fill(temp, (byte) 0);
+            System.arraycopy(keyByte, 0, temp, 0, keyByte.length);
             keyByte = temp;
         }
 

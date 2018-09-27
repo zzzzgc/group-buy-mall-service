@@ -43,7 +43,7 @@ public class GroupBuy extends BaseEntity implements Serializable {
     private boolean canNoutoasiakas = false;
 
     @JoinColumn(name = "user_id")
-    @ManyToOne( fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
     private User user = new User();
 

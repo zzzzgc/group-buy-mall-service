@@ -12,11 +12,11 @@ import java.util.Set;
  * @author: ZGC
  * @date Created in 2018/8/31 下午 8:57
  */
-@ToString(callSuper = true, exclude = {"groupBuys", "orders","userShop","userMerchantDefaultSettings","customerDefaultSettings","careAboutGroupBuys","noutoasiakas"})
-@EqualsAndHashCode(callSuper = true, exclude = {"groupBuys", "orders","userShop","userMerchantDefaultSettings","customerDefaultSettings","careAboutGroupBuys","noutoasiakas"})
+@ToString(callSuper = true, exclude = {"groupBuys", "orders", "userShop", "userMerchantDefaultSettings", "customerDefaultSettings", "careAboutGroupBuys", "noutoasiakas"})
+@EqualsAndHashCode(callSuper = true, exclude = {"groupBuys", "orders", "userShop", "userMerchantDefaultSettings", "customerDefaultSettings", "careAboutGroupBuys", "noutoasiakas"})
 @Getter
 @Setter
-public class UserDto  extends BaseEntity implements Serializable {
+public class UserDto extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;

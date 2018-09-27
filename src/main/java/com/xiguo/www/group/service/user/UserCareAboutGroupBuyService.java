@@ -11,7 +11,8 @@ public interface UserCareAboutGroupBuyService {
 
     /**
      * 获取指定的关注用户,不存在会返回空
-     * @param userId 用户id
+     *
+     * @param userId          用户id
      * @param careAboutUserId 关注的用户(团长)id
      * @return 关注的用户(团长)
      */
@@ -19,7 +20,8 @@ public interface UserCareAboutGroupBuyService {
 
     /**
      * 保存指定的关注用户,不存在会返回空
-     * @param userId 用户id
+     *
+     * @param userId          用户id
      * @param careAboutUserId 关注的用户(团长)id
      * @return 关注的用户(团长)
      */

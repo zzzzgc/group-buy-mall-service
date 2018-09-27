@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @date Created in 2018/8/26 下午 5:57
  */
 @Service("noutoasiakasService")
-public class NoutoasiakasServiceImpl implements  NoutoasiakasService{
+public class NoutoasiakasServiceImpl implements NoutoasiakasService {
     @Autowired
     NoutoasiakasRepository noutoasiakasRepository;
 

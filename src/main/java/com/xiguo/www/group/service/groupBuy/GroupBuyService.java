@@ -12,6 +12,6 @@ public interface GroupBuyService {
 
     GroupBuy findById(Long groupBuyId);
 
-    GroupBuy findGroupBuyToGroupBuyProductImageById (Long groupBuyId);
+    GroupBuy findGroupBuyToGroupBuyProductImageById(Long groupBuyId);
 
 }

@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map login(String code, User user, HttpSession session){
+    public Map login(String code, User user, HttpSession session) {
         String getOpenIdUrl = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + appsecret + "&js_code=" + code + "&grant_type=authorization_code";
         String responseJsonStr = restTemplate.getForObject(getOpenIdUrl, String.class);
         try {

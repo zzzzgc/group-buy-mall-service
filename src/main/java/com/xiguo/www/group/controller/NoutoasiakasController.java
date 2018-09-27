@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * @author: ZGC
  * @date Created in 2018/8/31 上午 10:53
  */
-@Api(value="/noutoasiakas", tags="自提点服务模块")
+@Api(value = "/noutoasiakas", tags = "自提点服务模块")
 @RestController
 public class NoutoasiakasController {
 
@@ -28,6 +28,7 @@ public class NoutoasiakasController {
 
     /**
      * 保存自提点
+     *
      * @param noutoasiakas 自提点
      * @return 自提点
      */

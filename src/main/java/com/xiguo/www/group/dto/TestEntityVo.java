@@ -11,14 +11,14 @@ public class TestEntityVo {
 
     /**
      * 属性 另一边的 myProperty 通过@Mapping("theirProperty")映射到这个字段
-     *
+     * <p>
      * TestEntity.myProperty  -> TestEntityVo.theirProperty
      */
     private String theirProperty = "";
 
     /**
      * 标题 默认的映射
-     *
+     * <p>
      * TestEntity.title  -> TestEntityVo.title
      */
     private String title = "";

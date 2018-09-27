@@ -14,6 +14,7 @@ public interface OrderService {
     /**
      * 根据用户id获取订单
      * 后期扩展分页给出信息
+     *
      * @param userId 客户用户id
      * @return 订单集合
      */
@@ -21,6 +22,7 @@ public interface OrderService {
 
     /**
      * 获取订单详细 根据订单id
+     *
      * @param orderId 订单id
      * @return 订单详细
      */
@@ -29,7 +31,8 @@ public interface OrderService {
     /**
      * 根据商家用户id获取订单
      * 后期扩展分页给出信息
-     * @param userId 商家用户id
+     *
+     * @param userId     商家用户id
      * @param searchType
      * @param searchText
      * @return 订单集合

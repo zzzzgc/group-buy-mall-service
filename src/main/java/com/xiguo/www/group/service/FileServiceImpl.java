@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * @date Created in 2018/9/3 下午 3:54
  */
 @Service("fileService")
-public class FileServiceImpl implements  FileService{
+public class FileServiceImpl implements FileService {
 
     /**
      * 文件保存路径
@@ -32,24 +32,23 @@ public class FileServiceImpl implements  FileService{
     @Override
     public boolean deleteFileByUrl(String fileHttpUrl) {
         String clippingPathPattern = "/[\\w]+/[\\w\\d]+.[\\w]+$";
-            Matcher matcher = Pattern.compile(clippingPathPattern).matcher(fileHttpUrl);
-            while (matcher.find()) {
-                String fileRelativePath = matcher.group();
-                String fileSavePath = saveRootPath + fileRelativePath;
-                File file = new File(fileSavePath);
-                if (!file.exists()) {
-                    throw  new RuntimeException("文件不存在,文件:" + fileHttpUrl);
-                }
-                if (!file.delete()) {
-                    throw  new RuntimeException("文件删除失败,文件:" + fileHttpUrl);
-                }
+        Matcher matcher = Pattern.compile(clippingPathPattern).matcher(fileHttpUrl);
+        while (matcher.find()) {
+            String fileRelativePath = matcher.group();
+            String fileSavePath = saveRootPath + fileRelativePath;
+            File file = new File(fileSavePath);
+            if (!file.exists()) {
+                throw new RuntimeException("文件不存在,文件:" + fileHttpUrl);
+            }
+            if (!file.delete()) {
+                throw new RuntimeException("文件删除失败,文件:" + fileHttpUrl);
+            }
         }
         return true;
     }
 
     /**
-     *
-     * @param multipartFile 文件
+     * @param multipartFile    文件
      * @param fileRelativePath
      * @return
      */

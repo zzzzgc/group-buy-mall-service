@@ -23,11 +23,11 @@ public class UserMerchantDefaultSettingDto extends BaseEntity implements Seriali
     private Date createAt;
 
     private Date updatedAt;
-    
+
     private Boolean canDistribution = true;
-    
+
     private Boolean canNoutoasiakas = true;
-    
+
     // private UserDto user;
 
 }

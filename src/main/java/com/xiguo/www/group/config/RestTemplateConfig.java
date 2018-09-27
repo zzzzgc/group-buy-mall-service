@@ -25,6 +25,7 @@ import java.util.Set;
 
 /**
  * RestTemplate 请求的配置与注册bean
+ *
  * @author: ZGC
  * @date Created in 2018/8/27 下午 4:52
  */

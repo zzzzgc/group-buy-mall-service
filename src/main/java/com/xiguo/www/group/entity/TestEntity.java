@@ -22,7 +22,7 @@ import java.util.Date;
 @Entity
 @Table(appliesTo = "test_entity", comment = "表注释")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler", "createAt", "updatedAt"})
-public class TestEntity extends BaseEntity  implements Serializable {
+public class TestEntity extends BaseEntity implements Serializable {
 
     /**
      * 属性

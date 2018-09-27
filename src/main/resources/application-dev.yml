@@ -1,76 +1,76 @@
 system:
-    web:
-        domain:
-            # 项目域名
-            url: http://localhost:8100
-        file:
-            download:
-                # 项目静态资源获取的路径前缀，/**需要和static-path-pattern一致
-                path: ${system.web.domain.url}
-#                path: ${system.web.domain.url}/f
-            upload:
-                # 文件保存路径
-                path: G:/zhioProject/demo项目/wechat的demo/wepy微信小程序开发框架demo/groupBuy/src/main/resources/static
-    weChat:
-        # 微信appid
-        appid: wx1cc947d90d3d6d8b
-        # 微信秘钥
-        appsecret: 29de26d70a9ae03bd3bfcb06f9c0e99d
+  web:
+    domain:
+      # 项目域名
+      url: http://localhost:8100
+    file:
+      download:
+        # 项目静态资源获取的路径前缀，/**需要和static-path-pattern一致
+        path: ${system.web.domain.url}
+      #                path: ${system.web.domain.url}/f
+      upload:
+        # 文件保存路径
+        path: G:/zhioProject/demo项目/wechat的demo/wepy微信小程序开发框架demo/groupBuy/src/main/resources/static
+  weChat:
+    # 微信appid
+    appid: wx1cc947d90d3d6d8b
+    # 微信秘钥
+    appsecret: 29de26d70a9ae03bd3bfcb06f9c0e99d
 
 
 logging:
-    level:
-        com:
-            favorites: DEBUG
-        org:
-            hibernate: ERROR
-            springframework:
-                web: INFO
-    # 日志保存路径
-    path: C:/Users/Administrator/Desktop/text
+  level:
+    com:
+      favorites: DEBUG
+    org:
+      hibernate: ERROR
+      springframework:
+        web: INFO
+  # 日志保存路径
+  path: C:/Users/Administrator/Desktop/text
 
 
 spring:
-    data:
-        # spring data rest
-        rest:
-            # 请求根路径
-            basePath: /api
-    datasource:
-        # 数据源四要素
-        url: jdbc:mysql://localhost:3306/group_buy?useSSL=false
-        driver-class-name: com.mysql.jdbc.Driver
-        password: root1234
-        username: root
-        # tomcat?
-        tomcat:
-            initialSize: 20
-            max-active: 100
-            max-idle: 200
-    # spring data jpa
-    jpa:
-        # db类型
-        database-platform: org.hibernate.dialect.MySQL5Dialect
-        properties:
-            hibernate:
-                # sql方言
-                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-                enable_lazy_load_no_trans: true
-                # 格式化sql
-                format_sql: true
-                hbm2ddl:
-                    # TODO ddl语句类型 create暴力覆盖  create-drop临时(sessionFactory关闭时会把所有表删了) update差异更新(不删表) validate增长更新
-                    auto: update
-                use_sql_comments: true
-        # 打印SQL到日志
-        show-sql: true
-    # spring boot web
-    mvc:
-        # 静态资源路径
-#        static-path-pattern: /f/**
-    resources:
-        # 静态资源根目录
-        static-locations: classpath:/static,classpath:/META-INF,classpath:/META-INF/resources,classpath:/static/images,classpath:/static/qrCode,classpath:/static/video,classpath:/static/data,classpath:/static/file
+  data:
+    # spring data rest
+    rest:
+      # 请求根路径
+      basePath: /api
+  datasource:
+    # 数据源四要素
+    url: jdbc:mysql://localhost:3306/group_buy?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root1234
+    username: root
+    # tomcat?
+    tomcat:
+      initialSize: 20
+      max-active: 100
+      max-idle: 200
+  # spring data jpa
+  jpa:
+    # db类型
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+        # sql方言
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        enable_lazy_load_no_trans: true
+        # 格式化sql
+        format_sql: true
+        hbm2ddl:
+          # ddl语句类型 create暴力覆盖  create-drop临时(sessionFactory关闭时会把所有表删了) update差异更新(不删表) validate增长更新
+          auto: update
+        use_sql_comments: true
+    # 打印SQL到日志
+    show-sql: true
+  # spring boot web
+  mvc:
+  # 静态资源路径
+  #        static-path-pattern: /f/**
+  resources:
+    # 静态资源根目录
+    static-locations: classpath:/static,classpath:/META-INF,classpath:/META-INF/resources,classpath:/static/images,classpath:/static/qrCode,classpath:/static/video,classpath:/static/data,classpath:/static/file
 
 
 

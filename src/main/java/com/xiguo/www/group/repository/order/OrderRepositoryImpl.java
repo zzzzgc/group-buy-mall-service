@@ -73,12 +73,12 @@ public class OrderRepositoryImpl implements OrderInterface {
                     OrderProduct oldOrderProduct = oldOrderProductMap.get(orderProduct.getId());
                     // 订正库存数量
                     if (productService.updateInventory(orderProduct.getGroupBuyProduct().getId(), oldOrderProduct.getNumber(), orderProduct.getNumber()) != 1) {
-                        throw new RuntimeException("提交订单失败,商品 " + orderProduct.getName() + " 的库存不足"+orderProduct.getNumber()+"个,请减少数量后重试.");
+                        throw new RuntimeException("提交订单失败,商品 " + orderProduct.getName() + " 的库存不足" + orderProduct.getNumber() + "个,请减少数量后重试.");
                     }
                 } else {
                     // 划扣库存数量,初始商品数量为0
                     if (productService.updateInventory(orderProduct.getGroupBuyProduct().getId(), 0, orderProduct.getNumber()) != 1) {
-                        throw new RuntimeException("提交订单失败,商品 " + orderProduct.getName() + " 的库存不足"+orderProduct.getNumber()+"个,请减少数量后重试.");
+                        throw new RuntimeException("提交订单失败,商品 " + orderProduct.getName() + " 的库存不足" + orderProduct.getNumber() + "个,请减少数量后重试.");
                     }
                 }
                 orderProduct.setOrder(order);

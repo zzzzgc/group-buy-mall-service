@@ -12,16 +12,18 @@ public interface FileService {
 
     /**
      * 保存文件获取访问文件的url
+     *
      * @param multipartFile 文件
-     * @param fileSavePath 保存的相对路径
+     * @param fileSavePath  保存的相对路径
      * @return 文件 URL
      */
-    String saveFile(MultipartFile multipartFile,String fileSavePath);
+    String saveFile(MultipartFile multipartFile, String fileSavePath);
 
     /**
      * 保存文件获取访问文件的url
-     * @param data 文件
-     * @param fileNameSuffix 文件后缀
+     *
+     * @param data             文件
+     * @param fileNameSuffix   文件后缀
      * @param fileRelativePath 保存的相对路径
      * @return 文件 URL
      */

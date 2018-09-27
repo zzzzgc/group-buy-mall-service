@@ -10,10 +10,11 @@ import java.util.Date;
 
 /**
  * 数据库实体基础类
- *
+ * <p>
  * 这不是一个完整的实体类且映射到数据库表
  * 但是它的属性都将映射到其子类的数据库字段
  * 因为@MappedSuperclass
+ *
  * @author: ZGC
  * @date Created in 2018/8/30 上午 11:22
  */

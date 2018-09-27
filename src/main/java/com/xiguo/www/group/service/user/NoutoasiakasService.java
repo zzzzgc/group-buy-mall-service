@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public interface NoutoasiakasService {
     /**
      * 保存自提点
+     *
      * @return 保存的自提点
      */
     Noutoasiakas saveNoutoasiakas(Noutoasiakas noutoasiakas);

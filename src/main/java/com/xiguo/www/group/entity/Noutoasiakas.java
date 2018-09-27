@@ -16,11 +16,12 @@ import java.util.Objects;
 
 /**
  * 用户的自提点 模板 模板 模板
+ *
  * @author ZGC
  * @date Created in 下午 5:31 2018/8/25
  */
-@ToString(callSuper = true, exclude = {"user","groupBuyNoutoasiakases"})
-@EqualsAndHashCode(callSuper = true, exclude = {"user","groupBuyNoutoasiakases"})
+@ToString(callSuper = true, exclude = {"user", "groupBuyNoutoasiakases"})
+@EqualsAndHashCode(callSuper = true, exclude = {"user", "groupBuyNoutoasiakases"})
 @Getter
 @Setter
 

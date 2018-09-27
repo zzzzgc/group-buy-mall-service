@@ -28,6 +28,7 @@ public interface GroupBuyRepositoryInterface {
      * 获取以下关联的数据
      * groupBuy -> groupBuyProduct -> groupBuyProductImage
      * 并附带自提点 groupBuy -> groupBuyN
+     *
      * @param groupBuyId
      * @return
      */

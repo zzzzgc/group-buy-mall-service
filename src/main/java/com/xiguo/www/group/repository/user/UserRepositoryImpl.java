@@ -20,7 +20,7 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
     @Override
     public Set<User> findAllCareAboutUserGroupBuyInfo(Long userId) {
         Optional<User> byId = userRepository.findById(userId);
-        if (!byId.isPresent())  {
+        if (!byId.isPresent()) {
             // 抛异常?
         }
         User user = byId.get();

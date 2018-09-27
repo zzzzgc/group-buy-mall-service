@@ -38,10 +38,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.springframework.boot</groupId>-->
-                    <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-                <!--</exclusion>-->
+            <!--<exclusion>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--</exclusion>-->
             <!--</exclusions>-->
         </dependency>
 
@@ -119,9 +119,9 @@
 
         <!--tomcat需要的包-->
         <!--<dependency>-->
-            <!--<groupId>javax.servlet</groupId>-->
-            <!--<artifactId>javax.servlet-api</artifactId>-->
-            <!--<scope>provided</scope>-->
+        <!--<groupId>javax.servlet</groupId>-->
+        <!--<artifactId>javax.servlet-api</artifactId>-->
+        <!--<scope>provided</scope>-->
         <!--</dependency>-->
 
         <!--接口监控-->
@@ -133,7 +133,7 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk16</artifactId>
-            <version>1.59</version>
+            <version>1.46</version>
         </dependency>
 
         <!--redis-->

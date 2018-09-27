@@ -32,7 +32,7 @@ public class GroupBuyNoutoasiakas extends BaseEntity implements Serializable {
     @Column(nullable = false, columnDefinition = "varchar(50) COMMENT '自提点昵称' ")
     private String nickName = "";
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
     private GroupBuy groupBuy;
     @ManyToOne(fetch = FetchType.LAZY)

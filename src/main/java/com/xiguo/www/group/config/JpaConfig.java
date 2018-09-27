@@ -106,6 +106,7 @@ class MyDateFormat extends DateFormat {
 
     /**
      * 主要还是装饰这个方法
+     *
      * @param source
      * @return
      * @throws ParseException
@@ -128,6 +129,7 @@ class MyDateFormat extends DateFormat {
 
     /**
      * 这里装饰clone方法的原因是因为clone方法在jackson中也有用到
+     *
      * @return
      */
     @Override

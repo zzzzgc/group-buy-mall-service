@@ -1,17 +1,17 @@
 server:
-    port: 8100 # 项目端口号
+  port: 8100 # 项目端口号
 
 spring:
-    # spring boot 自带格式化的包,常用于RestController将对象序列化返回json格式数据
-    jackson:
-        # 格式化时间
-        date-format: yyyy-MM-dd HH:mm:ss
-        # 时间地点
-        locale: zh
-        # 时间时区
-        time-zone: GMT+8
-    profiles:
-        # 根据环境选择项目配置本地环境 dev开发 test测试 prod生产
-        active: dev
+  # spring boot 自带格式化的包,常用于RestController将对象序列化返回json格式数据
+  jackson:
+    # 格式化时间
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 时间地点
+    locale: zh
+    # 时间时区
+    time-zone: GMT+8
+  profiles:
+    # 根据环境选择项目配置本地环境 dev开发 test测试 prod生产
+    active: dev
 
 

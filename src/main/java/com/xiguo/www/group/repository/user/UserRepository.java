@@ -12,17 +12,19 @@ import org.springframework.data.rest.core.annotation.RestResource;
  * @date Created in 下午 9:00 2018/8/24
  */
 @RepositoryRestResource(collectionResourceRel = "users", path = "users")
-public interface  UserRepository extends JpaRepository<User, Long> ,UserRepositoryInterface{
+public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryInterface {
     /**
      * 根据昵称查找用户
+     *
      * @param nickName 昵称
      * @return 用户
      */
-    @RestResource(path="name",rel="name")
+    @RestResource(path = "name", rel = "name")
     User findByNickName(@Param("name") String nickName);
 
     /**
      * 根据openId查找用户
+     *
      * @param openId 微信openId
      * @return 用户
      */
@@ -34,6 +36,7 @@ public interface  UserRepository extends JpaRepository<User, Long> ,UserReposito
 
     /**
      * api/users/search/findByGroupBuyId?groupBuyId = xxx
+     *
      * @param groupBuyId
      * @return
      */

@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * API访问响应实体
+ *
  * @author: ZGC
  * @date Created in 2018/8/27 下午 6:08
  */
@@ -22,7 +23,7 @@ public class ResponseEntity implements Serializable {
         this.msg = responseStatus.getMsg();
     }
 
-    public ResponseEntity(ResponseStatus responseStatus,Object data) {
+    public ResponseEntity(ResponseStatus responseStatus, Object data) {
         this(responseStatus);
         this.data = data;
     }

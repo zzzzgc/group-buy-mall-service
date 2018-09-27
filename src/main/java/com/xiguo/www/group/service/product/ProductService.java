@@ -46,7 +46,6 @@ public class ProductService {
      * @return 0没更新  1更新成功 >1异常
      */
     public int updateInventory(Long productId, int beforeNumber, int afterNumber) {
-        // TODO 日志记录
         return groupBuyProductRepository.updateInventory(productId, afterNumber - beforeNumber);
     }
 }

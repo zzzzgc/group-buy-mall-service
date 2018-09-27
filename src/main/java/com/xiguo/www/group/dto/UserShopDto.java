@@ -24,13 +24,13 @@ public class UserShopDto extends BaseEntity implements Serializable {
     private Date createAt;
 
     private Date updatedAt;
-    
+
     private String shopName = "";
-    
+
     private Integer phone = 0;
-    
+
     private String address = "";
-    
+
     // private UserDto user;
 
 }

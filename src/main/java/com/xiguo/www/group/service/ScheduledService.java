@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 定时任务服务类
  * 默认10个线程.避免定时任务线程阻塞导致任务无法运行
+ *
  * @author: ZGC
  * @date Created in 2018/9/8 下午 12:41
  */

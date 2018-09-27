@@ -19,7 +19,7 @@ import java.util.List;
  * @author: ZGC
  * @date Created in 2018/8/28 下午 12:24
  */
-@Api(value="/order", tags="订单服务模块")
+@Api(value = "/order", tags = "订单服务模块")
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -47,10 +47,10 @@ public class OrderController {
 
     @GetMapping("/merchant")
     @ApiOperation("用商户id获取所有订单")
-    public ResponseEntity findByMerchantUserId(HttpSession session,@RequestParam int searchType,@RequestParam String searchText) {
+    public ResponseEntity findByMerchantUserId(HttpSession session, @RequestParam int searchType, @RequestParam String searchText) {
 //        Long userId = 1L;
         Long userId = (Long) session.getAttribute(SessionKey.USER_ID.toString());
-        List<Order> orders = orderService.findByMerchantUserId(userId, searchType,  searchText);
+        List<Order> orders = orderService.findByMerchantUserId(userId, searchType, searchText);
         return ResponseEntity.ok(orders);
     }
 

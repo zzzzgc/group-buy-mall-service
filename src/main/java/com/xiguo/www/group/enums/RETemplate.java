@@ -9,26 +9,25 @@ import org.springframework.http.ResponseEntity;
  */
 public class RETemplate {
 
-    public static ResponseEntity ok () {
+    public static ResponseEntity ok() {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    public static ResponseEntity ok (Object data) {
-        return new ResponseEntity<>(data,HttpStatus.OK);
+    public static ResponseEntity ok(Object data) {
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    public static ResponseEntity failure () {
-        return new ResponseEntity<>("服务器异常,请稍后重试.或联系开发人员手机: 18718840426",HttpStatus.INTERNAL_SERVER_ERROR);
+    public static ResponseEntity failure() {
+        return new ResponseEntity<>("服务器异常,请稍后重试.或联系开发人员手机: 18718840426", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public static ResponseEntity failure (String msg) {
-        return new ResponseEntity<>(msg,HttpStatus.INTERNAL_SERVER_ERROR);
+    public static ResponseEntity failure(String msg) {
+        return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public static ResponseEntity reject (String msg) {
-        return new ResponseEntity<>(msg,HttpStatus.NOT_ACCEPTABLE);
+    public static ResponseEntity reject(String msg) {
+        return new ResponseEntity<>(msg, HttpStatus.NOT_ACCEPTABLE);
     }
-
 
 
 }

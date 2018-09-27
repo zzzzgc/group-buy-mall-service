@@ -35,7 +35,7 @@ public class UserShop extends BaseEntity implements Serializable {
     @Column(nullable = false, columnDefinition = "varchar(25) COMMENT '店铺地址' ")
     private String address = "";
 
-    @OneToOne( fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
 }

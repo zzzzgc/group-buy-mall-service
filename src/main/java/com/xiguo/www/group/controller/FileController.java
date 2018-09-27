@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  * @author: ZGC
  * @date Created in 2018/8/30 下午 2:27
  */
-@Api(value="/file", tags="文件服务模块")
+@Api(value = "/file", tags = "文件服务模块")
 @RestController
 @RequestMapping("/file")
 public class FileController {
@@ -42,7 +42,6 @@ public class FileController {
      */
     @Value("${system.web.file.upload.path}")
     private String saveRootPath;
-
 
 
     /**
