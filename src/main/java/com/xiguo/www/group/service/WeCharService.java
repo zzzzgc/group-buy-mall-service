@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
+import java.security.Security;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,6 +60,7 @@ public class WeCharService {
      * 接口B
      * 适用于需要的码数量极多的业务场景
      * 通过该接口生成的小程序码，永久有效，数量暂无限制。
+     *
      * @param pagePath 小程序路径
      * @param param    携带参数
      * @return 二维码URL
@@ -100,12 +104,36 @@ public class WeCharService {
 
     /**
      * 微信小程序密文解密
-     * @param sessionKey 用户对应的sessionKey
-     * @param vi 偏移向量
+     *
+     * @param sessionKey    用户对应的sessionKey
+     * @param vi            偏移向量
      * @param encryptedData 密文
      * @return 内容
      */
-    public String decrypt(String sessionKey,String vi,String encryptedData){
+    public String decrypt(String sessionKey, String vi, String encryptedData) {
+        Base64.Decoder decoder = Base64.getDecoder();
+        byte[] dataByte = decoder.decode(sessionKey);
+        byte[] keyByte = decoder.decode(vi);
+        byte[] viByte = decoder.decode(encryptedData);
+
+        int base = 16;
+        // 必须是16位,32位等
+        if (keyByte.length % base != 0) {
+            int groups = keyByte.length / base + 1;
+            byte[] temp = new byte[groups * base];
+            Arrays.fill(temp,(byte)0);
+            System.arraycopy(keyByte,0 ,temp,0,keyByte.length);
+            keyByte = temp;
+        }
+
+//        Security.addProvider(new Boun)
         return null;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(12 % 2);
+        System.out.println(12 % 3);
+        System.out.println(32 / 16);
+        System.out.println(17 % 16);
     }
 }
