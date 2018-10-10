@@ -8,7 +8,7 @@ public enum SessionKey {
     // 微信openId
     WECHAT_OPEN_ID,
     // 微信sessionId
-    WECHAT_SESSION_ID,
+    WECHAT_SESSION_KEY,
     // 用户id
     USER_ID
 }

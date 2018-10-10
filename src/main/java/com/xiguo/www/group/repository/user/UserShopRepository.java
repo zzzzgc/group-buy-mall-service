@@ -11,4 +11,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  */
 @RepositoryRestResource(collectionResourceRel = "userShop", path = "userShop")
 public interface UserShopRepository extends JpaRepository<UserShop, Long> {
+    UserShop findByUser_Id(Long userId);
 }

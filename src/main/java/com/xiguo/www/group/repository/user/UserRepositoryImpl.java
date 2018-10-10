@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * @author: ZGC
+ * @author ZGC
  * @date Created in 2018/8/29 下午 4:50
  */
 public class UserRepositoryImpl implements UserRepositoryInterface {

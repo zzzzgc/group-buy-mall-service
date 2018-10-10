@@ -14,15 +14,16 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling
-public class GroupApplication extends SpringBootServletInitializer {
+public class GroupApplication{
+//public class GroupApplication extends SpringBootServletInitializer {
 
     private static ApplicationContext applicationContext;
 
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(GroupApplication.class);
-    }
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//        return builder.sources(GroupApplication.class);
+//    }
 
     public static void main(String[] args) {
 //        ConfigurableApplicationContext ctx = SpringApplication.run(GroupApplication.class, args);

@@ -3,13 +3,19 @@ package com.xiguo.www.group.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.xiguo.www.group.utils.JsonKit;
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
+import java.security.AlgorithmParameters;
+import java.security.Security;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
@@ -94,45 +100,12 @@ public class WeCharService {
             throw new RuntimeException("获取 qrCode 失败,错误信息 " + errorMsgJson);
         }
         byte[] result = response.getBody();
-        return fileService.saveFile(result, response.getHeaders().getContentType().getSubtype(), "/qrCode");
+        String fileNameSuffix = response.getHeaders().getContentType().getSubtype();
+        return fileService.saveFile(result, fileNameSuffix, "/qrCode");
     }
 
     public static String getAccessToken() {
         return accessToken;
     }
 
-    /**
-     * 微信小程序密文解密
-     *
-     * @param sessionKey    用户对应的sessionKey
-     * @param vi            偏移向量
-     * @param encryptedData 密文
-     * @return 内容
-     */
-    public String decrypt(String sessionKey, String vi, String encryptedData) {
-        Base64.Decoder decoder = Base64.getDecoder();
-        byte[] dataByte = decoder.decode(sessionKey);
-        byte[] keyByte = decoder.decode(vi);
-        byte[] viByte = decoder.decode(encryptedData);
-
-        int base = 16;
-        // 必须是16位,32位等
-        if (keyByte.length % base != 0) {
-            int groups = keyByte.length / base + 1;
-            byte[] temp = new byte[groups * base];
-            Arrays.fill(temp, (byte) 0);
-            System.arraycopy(keyByte, 0, temp, 0, keyByte.length);
-            keyByte = temp;
-        }
-
-//        Security.addProvider(new Boun)
-        return null;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(12 % 2);
-        System.out.println(12 % 3);
-        System.out.println(32 / 16);
-        System.out.println(17 % 16);
-    }
 }

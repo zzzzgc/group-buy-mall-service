@@ -34,6 +34,10 @@ public class UserShop extends BaseEntity implements Serializable {
     private Integer phone = 0;
     @Column(nullable = false, columnDefinition = "varchar(25) COMMENT '店铺地址' ")
     private String address = "";
+    @Column(nullable = false, columnDefinition = "varchar(200) COMMENT '微信支付二维码URL' ")
+    private String weChatPayQrCodeUrl = "";
+    @Column(nullable = false, columnDefinition = "varchar(180) COMMENT '支付宝支付二维码URL' ")
+    private String aliPayQrCodeUrl = "";
 
     @OneToOne(fetch = FetchType.LAZY)
     private User user;

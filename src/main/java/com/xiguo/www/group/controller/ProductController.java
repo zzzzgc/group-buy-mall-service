@@ -1,5 +1,6 @@
 package com.xiguo.www.group.controller;
 
+import com.xiguo.www.group.entity.GroupBuyProduct;
 import com.xiguo.www.group.entity.GroupBuyProductImage;
 import com.xiguo.www.group.enums.RETemplate;
 import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
@@ -10,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 /**
  * 商品服务
@@ -36,5 +39,15 @@ public class ProductController {
         GroupBuyProductImage groupBuyProductImage = groupBuyProductsImagesRepository.getOne(groupBuyProductId);
         groupBuyProductsImagesRepository.delete(groupBuyProductImage);
         return RETemplate.ok();
+    }
+
+    @GetMapping("/toGroupBuyProductImageById/{groupBuyProductId}")
+    @ApiOperation("获取商品信息")
+    public ResponseEntity toGroupBuyProductImageById(@PathVariable Long groupBuyProductId) {
+        Optional<GroupBuyProduct> byId = productRepository.findById(groupBuyProductId);
+        if (byId.isPresent()) {
+            return RETemplate.ok(byId.get());
+        }
+        return RETemplate.failure();
     }
 }

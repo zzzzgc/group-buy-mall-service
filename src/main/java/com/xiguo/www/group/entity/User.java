@@ -29,7 +29,7 @@ public class User extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, columnDefinition = "varchar(16) COMMENT '微信昵称(刚进入平台时候的名称)' ")
     private String weChatName = "";
-    @Column(unique = true, columnDefinition = "varchar(16) COMMENT '用户昵称' ")
+    @Column(unique = true, columnDefinition = "varchar(16) COMMENT '用户昵称(默认值为微信昵称)' ")
     private String nickName = "";
     @JsonIgnore
     @Column(nullable = false, unique = true, columnDefinition = "varchar(28) COMMENT '微信用户唯一编号' ")
@@ -44,14 +44,6 @@ public class User extends BaseEntity implements Serializable {
     private String country = "";
     @Column(nullable = false, columnDefinition = "tinyint(1) COMMENT '性别 1男 2女' ")
     private int gender = 0;
-    @Column(nullable = false, columnDefinition = "varchar(200) COMMENT '微信支付二维码URL' ")
-    private String weChatPayQrCodeUrl = "";
-    @Column(nullable = false, columnDefinition = "varchar(180) COMMENT '支付宝支付二维码URL' ")
-    private String aliPayQrCodeUrl = "";
-    @Column(nullable = false, columnDefinition = "varchar(14) COMMENT '手机号码,国外手机可能包含区号' ")
-    private String phone = "";
-    @Column(nullable = false, columnDefinition = "varchar(11) COMMENT '团长权限, 0无权限 1有权限' ")
-    private int openGroupPermissions = 0;
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -66,6 +58,10 @@ public class User extends BaseEntity implements Serializable {
     @OneToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private UserShop userShop;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private UserAuthentication userAuthentication;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<UserMerchantDefaultSetting> userMerchantDefaultSettings;

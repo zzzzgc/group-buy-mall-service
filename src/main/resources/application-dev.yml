@@ -1,3 +1,5 @@
+debug: true
+
 system:
   web:
     domain:
@@ -10,7 +12,8 @@ system:
       #                path: ${system.web.domain.url}/f
       upload:
         # 文件保存路径
-        path: G:/zhioProject/demo项目/wechat的demo/wepy微信小程序开发框架demo/groupBuy/src/main/resources/static
+        path: J:\指猴科技\团购\微信小程序\group-buy-mall-service\src\main\resources\static
+#        path: G:/zhioProject/demo项目/wechat的demo/wepy微信小程序开发框架demo/groupBuy/src/main/resources/static
   weChat:
     # 微信appid
     appid: wx1cc947d90d3d6d8b
@@ -92,3 +95,4 @@ spring:
 #    max-idle: 8
 #  # 连接超时时间（毫秒）
 #  timeout: 0
+

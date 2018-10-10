@@ -4,15 +4,13 @@ import com.xiguo.www.group.repository.groupBuy.GroupBuyRepository;
 import com.xiguo.www.group.repository.product.GroupBuyProductImageRepository;
 import com.xiguo.www.group.repository.product.GroupBuyProductRepository;
 import com.xiguo.www.group.repository.user.UserRepository;
+import com.xiguo.www.group.repository.user.UserShopRepository;
+import com.xiguo.www.group.service.WeCharService;
 import com.xiguo.www.group.service.dozer.BeanConvert;
 import org.hibernate.SQLQuery;
 import org.hibernate.transform.Transformers;
 import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -21,8 +19,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class GroupApplicationTests {
     @Autowired
     private UserRepository userRepository;
@@ -40,7 +38,6 @@ public class GroupApplicationTests {
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new TestRestJsonController()).build();
     }
 
     @PersistenceContext
@@ -49,7 +46,7 @@ public class GroupApplicationTests {
     @Autowired
     BeanConvert beanConvert;
 
-    @Test
+//    @Test
     public void stestsdfsdf() {
         Query nativeQuery = em.createNativeQuery("SELECT " +
                 "	gb.id, " +
@@ -68,5 +65,11 @@ public class GroupApplicationTests {
         List resultList = nativeQuery.getResultList();
         System.out.println(resultList.get(0));
     }
+
+    @Autowired
+    WeCharService weCharService;
+
+    @Autowired
+    UserShopRepository userShopRepository;
 
 }

@@ -2,8 +2,10 @@ package com.xiguo.www.group.service.user;
 
 import com.xiguo.www.group.entity.GroupBuy;
 import com.xiguo.www.group.entity.User;
+import com.xiguo.www.group.entity.UserShop;
 import com.xiguo.www.group.enums.SessionKey;
 import com.xiguo.www.group.repository.user.UserRepository;
+import com.xiguo.www.group.repository.user.UserShopRepository;
 import com.xiguo.www.group.utils.JsonKit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +28,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    UserShopRepository userShopRepository;
+
 
     @Autowired
     RestTemplate restTemplate;
@@ -51,10 +57,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map<String, String> findPayQrCodeById(Long userId) {
-        User user = userRepository.getOne(userId);
+        UserShop userShop = userShopRepository.findByUser_Id(userId);
         Map<String, String> payQRCode = new HashMap<>(2);
-        payQRCode.put("aliPayQrCodeUrl", user.getAliPayQrCodeUrl());
-        payQRCode.put("weChatPayQrCodeUrl", user.getWeChatPayQrCodeUrl());
+        payQRCode.put("aliPayQrCodeUrl", userShop.getAliPayQrCodeUrl());
+        payQRCode.put("weChatPayQrCodeUrl", userShop.getWeChatPayQrCodeUrl());
         return payQRCode;
     }
 
@@ -79,7 +85,7 @@ public class UserServiceImpl implements UserService {
                 }
                 String weChatSessionKey = (String) map.get("session_key");
                 session.setAttribute(SessionKey.USER_ID.toString(), localUser.getId());
-                session.setAttribute(SessionKey.WECHAT_SESSION_ID.toString(), weChatSessionKey);
+                session.setAttribute(SessionKey.WECHAT_SESSION_KEY.toString(), weChatSessionKey);
                 session.setAttribute(SessionKey.WECHAT_OPEN_ID.toString(), openId);
                 map = new HashMap<>(2);
                 map.put("sessionId", session.getId());
